@@ -10,42 +10,57 @@ public class heroController : MonoBehaviour {
     public GameObject turnManager_GameObject;
     private turnManager turnManager_Script;
 
-    public Button typeHeroSkill;
+    public Button freezeButton;
     public GameObject tileCheckerR;
     public GameObject tileCheckerL;
     public GameObject tileCheckerF;
     public GameObject tileCheckerB;
+
     public Text _textAP;
+    public Text _textStar;
+
     public RawImage endGameImageWin;
     public RawImage endGameImageLose;
+    public Image starImage;
     public Button restartGame;
     public bool isReversing { get; set; }
     public int _reverseTurn { get; set; }
     public string Warp;   //string that warp to other scence
 
     private float _movespeed = 4.0f;
-    private int _heroTurn;
-    private int _enviTurn;
-    private List<int> _saveTurn;
     private float _winPointX;
     private float _winPointZ;
+    private int _heroTurn;
+    private int _enviTurn;
     private int _actionPoint;
+    private int _countStar;
+    private List<int> _saveTurn;
     private bool _isEndGame;
-    //private int _state;
+    private bool _heroOnMove;
     private Vector3 _targetPosition;
     private Vector3 _tileCheckerPosition;
-    private bool _heroOnMove;
-    private EndScript EndScript_script; // use EndScript.cs
+
 
     // Use this for initialization
     void Start () {
         //use variable in turnManagerScript
         turnManager_Script = turnManager_GameObject.GetComponent<turnManager>();
-        //set active UI
+
+        //set type of each level
         if(turnManager_Script.typeHeroSkill == 1) // normal mode
         {
-            typeHeroSkill.gameObject.SetActive(false);
+            freezeButton.gameObject.SetActive(false);
+            starImage.gameObject.SetActive(false);
         }
+        if (turnManager_Script.typeHeroSkill == 3) // star mode
+        {
+            freezeButton.gameObject.SetActive(false);
+        }
+        if (turnManager_Script.typeHeroSkill == 2) // freeze mode
+        {
+            starImage.gameObject.SetActive(false);
+        }
+
         endGameImageWin.gameObject.SetActive(false);
         endGameImageLose.gameObject.SetActive(false);
         restartGame.gameObject.SetActive(false);
@@ -58,6 +73,7 @@ public class heroController : MonoBehaviour {
         _textAP.text = " " + _actionPoint;
 
         turnManager_Script.enviTurn = 0;
+        _countStar = 0;
         _targetPosition = transform.position;
     }
 	
@@ -132,20 +148,41 @@ public class heroController : MonoBehaviour {
                 // print("turn: " + turnManager_Script.enviTurn + "heroturn: " + turnManager_Script.heroTurn);
             }*/
 
+            //Check IsWin
             if (transform.position.x == _winPointX && transform.position.z == _winPointZ)
             {
-                print("Win");
-                //_state = 1; // Win
-                _isEndGame = true;
-                print(turnManager_Script.isWarp);
-                if (turnManager_Script.isWarp)
+                if(turnManager_Script.typeHeroSkill == 3)
                 {
-                    SceneManager.LoadScene(Warp);   
+                    if(_countStar == turnManager_Script.countStarWin)
+                    {
+                        print("Win");
+                        _isEndGame = true;
+                        //print(turnManager_Script.isWarp);
+                        if (turnManager_Script.isWarp)
+                        {
+                            SceneManager.LoadScene(Warp);
+                        }
+                        else
+                        {
+                            endGameImageWin.gameObject.SetActive(_isEndGame);
+                            restartGame.gameObject.SetActive(_isEndGame);
+                        }
+                    }
                 }
                 else
                 {
-                    endGameImageWin.gameObject.SetActive(_isEndGame);
-                    restartGame.gameObject.SetActive(_isEndGame);
+                    print("Win");
+                    _isEndGame = true;
+                    //print(turnManager_Script.isWarp);
+                    if (turnManager_Script.isWarp)
+                    {
+                        SceneManager.LoadScene(Warp);
+                    }
+                    else
+                    {
+                        endGameImageWin.gameObject.SetActive(_isEndGame);
+                        restartGame.gameObject.SetActive(_isEndGame);
+                    }
                 }
             }
             else
@@ -206,6 +243,15 @@ public class heroController : MonoBehaviour {
             _isEndGame = true;
             endGameImageLose.gameObject.SetActive(_isEndGame);
             restartGame.gameObject.SetActive(_isEndGame);
+        }
+
+        //star
+        if (other.gameObject.tag == "star")
+        {
+            print("OUCH!");
+            _countStar++;
+            other.gameObject.SetActive(false);
+            _textStar.text = " " + _countStar;
         }
     }
 

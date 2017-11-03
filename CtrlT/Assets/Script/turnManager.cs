@@ -7,7 +7,8 @@ public class turnManager : MonoBehaviour {
 
     public int enviTurn { get; set; }
     public int heroTurn { get; set; }
-    public int typeHeroSkill; // 1 = normal, 2 = freeze
+    public int typeHeroSkill; // 1 = normal, 2 = freeze , 3 = star
+    public int countStarWin; // count of star that hero must collect to win
     public List<int> savedTurn { get; set; }
     public int actionPoint;
     public Vector3 winPoint;
