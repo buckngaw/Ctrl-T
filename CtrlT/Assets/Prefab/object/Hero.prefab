@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 65139754974071880}
   - component: {fileID: 23307885085469466}
   - component: {fileID: 114358714390527980}
-  - component: {fileID: 54384511500950516}
+  - component: {fileID: 54956180164312016}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -249,7 +249,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b61e1eff1a00ad24e80e4b59b3797c4c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -367,7 +367,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289189273438604}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54384511500950516
+--- !u!54 &54956180164312016
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -390,7 +390,7 @@ BoxCollider:
   m_GameObject: {fileID: 1598685419198144}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -402,7 +402,7 @@ BoxCollider:
   m_GameObject: {fileID: 1734310766585748}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -426,7 +426,7 @@ BoxCollider:
   m_GameObject: {fileID: 1492773767767294}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -438,7 +438,7 @@ BoxCollider:
   m_GameObject: {fileID: 1289189273438604}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -454,13 +454,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnManager_GameObject: {fileID: 0}
-  typeHeroSkill: {fileID: 0}
+  freezeButton: {fileID: 0}
   tileCheckerR: {fileID: 1734310766585748}
   tileCheckerL: {fileID: 1289189273438604}
   tileCheckerF: {fileID: 1492773767767294}
   tileCheckerB: {fileID: 1598685419198144}
   _textAP: {fileID: 0}
+  _textStar: {fileID: 114913139724874992, guid: fdc37ca91fabe494c8e5be333bff31eb,
+    type: 2}
   endGameImageWin: {fileID: 0}
   endGameImageLose: {fileID: 0}
+  starImage: {fileID: 114512164010599034, guid: fdc37ca91fabe494c8e5be333bff31eb,
+    type: 2}
   restartGame: {fileID: 0}
   Warp: 
