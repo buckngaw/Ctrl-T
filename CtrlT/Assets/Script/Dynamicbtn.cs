@@ -29,71 +29,50 @@ public class Dynamicbtn : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
-            turnManager_Script = turnManager_GameObject.GetComponent<turnManager>();
-            heroController_Script = heroController_GameObject.GetComponent<heroController>();
-            _temp += 1;
-            _line = 1;
-            _heroTurn = turnManager_Script.heroTurn + 1;
+        turnManager_Script = turnManager_GameObject.GetComponent<turnManager>();
+        heroController_Script = heroController_GameObject.GetComponent<heroController>();
     }
 
     void Update()
     {
-   
-        _turn = turnManager_Script.heroTurn; 
-        if (_turn == _temp)
-        {
-            //print("turn++");
-            isTurn = true;
-        }
-
-       if (isTurn)
-        {
-            print("create");
-            createButton();
-            isTurn = false;
-            _temp++;
-        }
         
-
     }
 
-    public void createButton()
+    public void createButton(int inputLine, Button clickedButton) // 0 = same line, 1 = add line
     {
-        GameObject goButton = (GameObject)Instantiate(prefabButton);
+        Button goButton = Instantiate(prefabButton).GetComponent<Button>();
         goButton.GetComponent<PrefabButton>().turn = turnManager_Script.heroTurn;     //set parameter in PrefabButton.cs
         goButton.transform.SetParent(ParentPanel, false);
-        goButton.GetComponentInChildren<Text>().text = turnManager_Script.heroTurn.ToString();
+        goButton.GetComponentInChildren<Text>().text = (turnManager_Script.heroTurn + 1).ToString();
         goButton.transform.localScale = new Vector3(1, 1, 1);
-        Vector3 pos = goButton.transform.position;
-
-        //if reverseTurn
-        if (heroController_Script.isReversing == true)
+        Vector3 defaultPosition = new Vector3(-220, -115, 0);
+        Vector3 pos = defaultPosition;
+        
+        if (inputLine == 1)
         {
             _line++; // set new line when reverseTurn
-            pos.x = savedPostionButtonTurn[(heroController_Script._reverseTurn - 1)]; //same pos.x of turn that reverse
-            pos.y = (50f * _line); 
-            goButton.transform.position = pos;
-            savedPostionButtonTurn.Add(pos.x);
+            pos.x = clickedButton.GetComponent<RectTransform>().anchoredPosition.x; //same pos.x of turn that reverse
+            pos.y = defaultPosition.y + (50f * _line);
         }
-        else{
-            if(turnManager_Script.heroTurn == 1)
+        else
+        {
+            if (turnManager_Script.heroTurn == 0)
             {
-                pos.x = 50f * _heroTurn;
-               
+                // DO NOTHING.
             }
             else
             {
-                print(turnManager_Script.heroTurn);
-                pos.x = 50f + savedPostionButtonTurn[turnManager_Script.heroTurn - 2];
+                pos.x = savedPostionButtonTurn[turnManager_Script.heroTurn - 1] + 50.0f;
+                pos.y = defaultPosition.y + (50f * _line);
             }
-
-            pos.y = 50f * _line;
+            
             _heroTurn++;
-            goButton.transform.position = pos;
-            savedPostionButtonTurn.Add(pos.x);
 
         }
+
+        RectTransform rectTransform = goButton.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = pos;
+        savedPostionButtonTurn.Add(pos.x);
         
     }
 

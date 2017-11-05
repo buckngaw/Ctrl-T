@@ -79,10 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Material\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
-    <Compile Include="Assets\PrefabButton.cs" />
     <Compile Include="Assets\Script\Dynamicbtn.cs" />
     <Compile Include="Assets\Script\EndScript.cs" />
     <Compile Include="Assets\Script\heroController.cs" />
+    <Compile Include="Assets\Script\PrefabButton.cs" />
     <Compile Include="Assets\Script\turnManager.cs" />
     <Compile Include="Assets\Script\turnPosition.cs" />
   </ItemGroup>

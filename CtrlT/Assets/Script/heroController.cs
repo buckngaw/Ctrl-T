@@ -10,6 +10,9 @@ public class heroController : MonoBehaviour {
     public GameObject turnManager_GameObject;
     private turnManager turnManager_Script;
 
+    public GameObject buttonManager_obj;
+    private Dynamicbtn buttonManager_script;
+
     public Button freezeButton;
     public GameObject tileCheckerR;
     public GameObject tileCheckerL;
@@ -18,6 +21,7 @@ public class heroController : MonoBehaviour {
 
     public Text _textAP;
     public Text _textStar;
+    public Text _textStarBack;
 
     public RawImage endGameImageWin;
     public RawImage endGameImageLose;
@@ -26,6 +30,7 @@ public class heroController : MonoBehaviour {
     public bool isReversing { get; set; }
     public int _reverseTurn { get; set; }
     public string Warp;   //string that warp to other scence
+    public bool _isChangeState { get; set; }
 
     private float _movespeed = 4.0f;
     private float _winPointX;
@@ -45,16 +50,18 @@ public class heroController : MonoBehaviour {
     void Start () {
         //use variable in turnManagerScript
         turnManager_Script = turnManager_GameObject.GetComponent<turnManager>();
-
+        buttonManager_script = buttonManager_obj.GetComponent<Dynamicbtn>();
         //set type of each level
         if(turnManager_Script.typeHeroSkill == 1) // normal mode
         {
             freezeButton.gameObject.SetActive(false);
             starImage.gameObject.SetActive(false);
+            //print("typeHeroSkill 1");
         }
         if (turnManager_Script.typeHeroSkill == 3) // star mode
         {
             freezeButton.gameObject.SetActive(false);
+            _textStarBack.text = "  /" + turnManager_Script.countStarWin;
         }
         if (turnManager_Script.typeHeroSkill == 2) // freeze mode
         {
@@ -74,86 +81,109 @@ public class heroController : MonoBehaviour {
 
         turnManager_Script.enviTurn = 0;
         _countStar = 0;
+        _isChangeState = false;
         _targetPosition = transform.position;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-
         _textAP.text = " " + _actionPoint;
 
         if (!_isEndGame)
         {
             GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile"); //tiles = object that has tag = "Tile"
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _movespeed * Time.deltaTime);
-
-            if (_heroOnMove)
+            if (!_isChangeState)
             {
-                if (transform.position == _targetPosition)
+                transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _movespeed * Time.deltaTime);
+
+                if (_heroOnMove)
                 {
-                    _heroOnMove = false;
-                    turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
-                    turnManager_Script.enviTurn++;
+                    if (transform.position == _targetPosition)
+                    {
+                        _heroOnMove = false;
+                        turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
+                        turnManager_Script.enviTurn++;
+                        turnManager_Script.heroTurn++;
+                        _actionPoint--;
+                        print("heroturn: " + turnManager_Script.heroTurn + " turn: " + turnManager_Script.enviTurn);
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    //updateValue(tileCheckerR, tiles);
+                    if (checkTile(tileCheckerR, tiles))
+                    {
+                        _tileCheckerPosition = new Vector3(1, 0, 0);
+                        updateValue(_tileCheckerPosition);
+                        buttonManager_script.createButton(0, null);
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    //updateValue(tileCheckerL, tiles);
+                    if (checkTile(tileCheckerL, tiles))
+                    {
+                        _tileCheckerPosition = new Vector3(-1, 0, 0);
+                        updateValue(_tileCheckerPosition);
+                        buttonManager_script.createButton(0, null);
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    //updateValue(tileCheckerF, tiles);       
+                    if (checkTile(tileCheckerF, tiles))
+                    {
+                        _tileCheckerPosition = new Vector3(0, 0, 1);
+                        updateValue(_tileCheckerPosition);
+                        buttonManager_script.createButton(0, null);
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    // updateValue(tileCheckerB, tiles);
+                    if (checkTile(tileCheckerB, tiles))
+                    {
+                        _tileCheckerPosition = new Vector3(0, 0, -1);
+                        updateValue(_tileCheckerPosition);
+                        buttonManager_script.createButton(0,null);
+                    }
+                }
+
+                /*if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    turnManager_Script.enviTurn -= 3;
+                    //reverseTurn(3);
                     turnManager_Script.heroTurn++;
                     _actionPoint--;
-                    print("heroturn: " + turnManager_Script.heroTurn + " turn: " + turnManager_Script.enviTurn);
-                }
-            }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                //updateValue(tileCheckerR, tiles);
-                if (checkTile(tileCheckerR, tiles))
-                {
-                    _tileCheckerPosition = new Vector3(1, 0, 0);
-                    updateValue(_tileCheckerPosition);
-                }
-            }
+                    // print("turn: " + turnManager_Script.enviTurn + "heroturn: " + turnManager_Script.heroTurn);
+                }*/
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                //updateValue(tileCheckerL, tiles);
-                if (checkTile(tileCheckerL, tiles))
+                //Check IsWin
+                if (transform.position.x == _winPointX && transform.position.z == _winPointZ)
                 {
-                    _tileCheckerPosition = new Vector3(-1, 0, 0);
-                    updateValue(_tileCheckerPosition);     
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                //updateValue(tileCheckerF, tiles);       
-                if (checkTile(tileCheckerF, tiles))
-                {
-                    _tileCheckerPosition = new Vector3(0, 0, 1);
-                    updateValue(_tileCheckerPosition);       
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                // updateValue(tileCheckerB, tiles);
-                if (checkTile(tileCheckerB, tiles))
-                {
-                    _tileCheckerPosition = new Vector3(0, 0, -1);
-                    updateValue(_tileCheckerPosition);              
-                }
-            }
-
-            /*if (Input.GetKeyDown(KeyCode.Q))
-            {
-                turnManager_Script.enviTurn -= 3;
-                //reverseTurn(3);
-                turnManager_Script.heroTurn++;
-                _actionPoint--;
-               
-                // print("turn: " + turnManager_Script.enviTurn + "heroturn: " + turnManager_Script.heroTurn);
-            }*/
-
-            //Check IsWin
-            if (transform.position.x == _winPointX && transform.position.z == _winPointZ)
-            {
-                if(turnManager_Script.typeHeroSkill == 3)
-                {
-                    if(_countStar == turnManager_Script.countStarWin)
+                    if (turnManager_Script.typeHeroSkill == 3)
+                    {
+                        if (_countStar == turnManager_Script.countStarWin)
+                        {
+                            print("Win");
+                            _isEndGame = true;
+                            //print(turnManager_Script.isWarp);
+                            if (turnManager_Script.isWarp)
+                            {
+                                SceneManager.LoadScene(Warp);
+                            }
+                            else
+                            {
+                                endGameImageWin.gameObject.SetActive(_isEndGame);
+                                restartGame.gameObject.SetActive(_isEndGame);
+                            }
+                        }
+                    }
+                    else
                     {
                         print("Win");
                         _isEndGame = true;
@@ -171,55 +201,63 @@ public class heroController : MonoBehaviour {
                 }
                 else
                 {
-                    print("Win");
-                    _isEndGame = true;
-                    //print(turnManager_Script.isWarp);
-                    if (turnManager_Script.isWarp)
+                    if (_actionPoint == 0)
                     {
-                        SceneManager.LoadScene(Warp);
-                    }
-                    else
-                    {
-                        endGameImageWin.gameObject.SetActive(_isEndGame);
+                        print("Lose");
+                        _isEndGame = true;
+                        endGameImageLose.gameObject.SetActive(_isEndGame);
                         restartGame.gameObject.SetActive(_isEndGame);
                     }
                 }
+
             }
             else
             {
-                if (_actionPoint == 0)
-                {
-                    print("Lose");
-                    _isEndGame = true;
-                    endGameImageLose.gameObject.SetActive(_isEndGame);
-                    restartGame.gameObject.SetActive(_isEndGame);
-                }
+                print("eiei2");
             }
         }
 
     }
 
-   public void updateValue(Vector3 input)
+    private void OnMouseDown()
+    {
+        _isChangeState = true;
+       
+    }
+
+    public void freeze()
+    {
+        _isChangeState = true;
+        print("eiei");
+        print(_isChangeState);
+    }
+
+    public void updateValue(Vector3 input)
     {
         _targetPosition = _targetPosition + input;
         _heroOnMove = true;
     }
 
-   public void reverseTurn(int reverseTurn)
+   public void reverseTurn(int reverseTurn, Button clickedButton)
     {
-        isReversing = true;
-        print("Turn: " + reverseTurn);
-        _reverseTurn = reverseTurn;
-        turnManager_Script.enviTurn = turnManager_Script.savedTurn[reverseTurn-1];
-        turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
-        turnManager_Script.enviTurn++;
-        turnManager_Script.heroTurn++;
-        _actionPoint--;
-        _textAP.text = " " + _actionPoint;
-        print("heroturn: " + turnManager_Script.heroTurn + " turn: " + turnManager_Script.enviTurn  );
+        if (!_isEndGame)
+        {
+            buttonManager_script.createButton(1, clickedButton);
+
+            isReversing = true;
+            _reverseTurn = reverseTurn;
+            turnManager_Script.enviTurn = turnManager_Script.savedTurn[reverseTurn];
+            turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
+            turnManager_Script.enviTurn++;
+            turnManager_Script.heroTurn++;
+            _actionPoint--;
+            _textAP.text = " " + _actionPoint;
+            print("heroturn: " + turnManager_Script.heroTurn + " turn: " + turnManager_Script.enviTurn);
+            
+        }
     }
 
-
+    //GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
     private bool checkTile(GameObject input,GameObject[] tiles)
     {
         bool output = false;
@@ -254,6 +292,8 @@ public class heroController : MonoBehaviour {
             _textStar.text = " " + _countStar;
         }
     }
+
+  
 
 }
 
