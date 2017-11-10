@@ -2202,6 +2202,11 @@ Prefab:
       propertyPath: starImage
       value: 
       objectReference: {fileID: 1763466138}
+    - target: {fileID: 114358714390527980, guid: e1258d8b2c4b9a44daffe068461bc791,
+        type: 2}
+      propertyPath: buttonManager_obj
+      value: 
+      objectReference: {fileID: 2029774149}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1258d8b2c4b9a44daffe068461bc791, type: 2}
   m_IsPrefabParent: 0
@@ -6376,6 +6381,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4198147135674526, guid: 16639d873911c5842be9aaf027c5460f,
     type: 2}
   m_PrefabInternal: {fileID: 1777889160}
+--- !u!1 &2029774149 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1222096810769980, guid: cd11c4192b485c844ae40ffead816187,
+    type: 2}
+  m_PrefabInternal: {fileID: 492569620}
 --- !u!114 &2067670420 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114667221746934592, guid: fcb3318f6c7b1c14db76acfee3c03cf3,

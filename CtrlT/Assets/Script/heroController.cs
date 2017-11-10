@@ -31,19 +31,23 @@ public class heroController : MonoBehaviour {
     public int _reverseTurn { get; set; }
     public string Warp;   //string that warp to other scence
     public bool _isChangeState { get; set; }
+    public bool _isclick { get; set; }
+
+    public  int _freezeMon { get; set; }
 
     private float _movespeed = 4.0f;
     private float _winPointX;
     private float _winPointZ;
     private int _heroTurn;
     private int _enviTurn;
-    private int _actionPoint;
     private int _countStar;
     private List<int> _saveTurn;
     private bool _isEndGame;
     private bool _heroOnMove;
     private Vector3 _targetPosition;
     private Vector3 _tileCheckerPosition;
+
+    private int _useFreeze; 
 
 
     // Use this for initialization
@@ -72,23 +76,24 @@ public class heroController : MonoBehaviour {
         endGameImageLose.gameObject.SetActive(false);
         restartGame.gameObject.SetActive(false);
 
-        _actionPoint = turnManager_Script.actionPoint ;
         _winPointX = turnManager_Script.winPoint.x;
         _winPointZ = turnManager_Script.winPoint.z;
         _isEndGame = turnManager_Script.isEndGame;
 
-        _textAP.text = " " + _actionPoint;
+        _textAP.text = " " + turnManager_Script.actionPoint;
 
         turnManager_Script.enviTurn = 0;
         _countStar = 0;
+        _useFreeze = 0;
         _isChangeState = false;
+        _isclick = false;
         _targetPosition = transform.position;
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        _textAP.text = " " + _actionPoint;
+        _textAP.text = " " + turnManager_Script.actionPoint;
 
         if (!_isEndGame)
         {
@@ -105,7 +110,7 @@ public class heroController : MonoBehaviour {
                         turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
                         turnManager_Script.enviTurn++;
                         turnManager_Script.heroTurn++;
-                        _actionPoint--;
+                        turnManager_Script.actionPoint--;
                         print("heroturn: " + turnManager_Script.heroTurn + " turn: " + turnManager_Script.enviTurn);
                     }
                 }
@@ -201,7 +206,7 @@ public class heroController : MonoBehaviour {
                 }
                 else
                 {
-                    if (_actionPoint == 0)
+                    if (turnManager_Script.actionPoint == 0)
                     {
                         print("Lose");
                         _isEndGame = true;
@@ -213,21 +218,17 @@ public class heroController : MonoBehaviour {
             }
             else
             {
-                print("eiei2");
+                //print("eiei2");
+                
             }
         }
 
     }
 
-    private void OnMouseDown()
-    {
-        _isChangeState = true;
-       
-    }
-
     public void freeze()
     {
         _isChangeState = true;
+        _useFreeze++;
         print("eiei");
         print(_isChangeState);
     }
@@ -246,16 +247,31 @@ public class heroController : MonoBehaviour {
 
             isReversing = true;
             _reverseTurn = reverseTurn;
-            turnManager_Script.enviTurn = turnManager_Script.savedTurn[reverseTurn];
-            turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
-            turnManager_Script.enviTurn++;
-            turnManager_Script.heroTurn++;
-            _actionPoint--;
-            _textAP.text = " " + _actionPoint;
+            
+            
+                turnManager_Script.enviTurn = turnManager_Script.savedTurn[reverseTurn];
+                turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
+                turnManager_Script.enviTurn++;
+                turnManager_Script.heroTurn++;
+            
+            turnManager_Script.actionPoint--;
+            _textAP.text = " " + turnManager_Script.actionPoint;
             print("heroturn: " + turnManager_Script.heroTurn + " turn: " + turnManager_Script.enviTurn);
             
         }
     }
+
+    /*public void freezeEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+        foreach(GameObject enemy in enemies)
+        {
+            if (enemy.GetComponent<enemyManager>().isFreeze)
+            {
+                
+            }
+        }
+    }*/
 
     //GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
     private bool checkTile(GameObject input,GameObject[] tiles)

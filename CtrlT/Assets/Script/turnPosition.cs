@@ -13,6 +13,8 @@ public class turnPosition : MonoBehaviour {
     public Vector3[] positions;
     private float _movespeed = 4.0f;
     private int _enviTurn;
+    public bool _isFreeze;
+    private int _instanceID;
     
     // Use this for initialization
     void Start () {
@@ -20,6 +22,7 @@ public class turnPosition : MonoBehaviour {
         turnManager_Script = turnManager_GameObject.GetComponent<turnManager>();
         //get script heroController
         heroController_Script = heroController_GameObject.GetComponent<heroController>();
+        _isFreeze = false;
     }
 	
 	// Update is called once per frame
@@ -29,33 +32,59 @@ public class turnPosition : MonoBehaviour {
         if (heroController_Script.isReversing)
         {
             // LIKE MOVEMENT(); BUT ENEMY WILL INSTANT WARP.
-            int index = _enviTurn % positions.Length;
-            transform.position = positions[index];
-            heroController_Script.isReversing = false;
+            if (!_isFreeze)
+            {
+                int index = _enviTurn % positions.Length;
+                transform.position = positions[index];
+                heroController_Script.isReversing = false;
+            }else if (_isFreeze)
+            {
+                print("freeze");
+                heroController_Script.isReversing = false;
+            }
+            
 
         }  //changeState
         else if (heroController_Script._isChangeState)
         {
-            Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
-            Halo.enabled = true;
+            //_isFreeze = false; // set all mon not freeze (reset)
+            GameObject[] mons = GameObject.FindGameObjectsWithTag("Enemy");
+            for(int i = 0; i < mons.Length; i++)
+            {
+                Behaviour Halo = (Behaviour)mons[i].GetComponent("Halo");
+                Halo.enabled = true;
+            }
+            // if choose mon to freeze
+            if(heroController_Script._isclick == true)
+            {
+                for (int i = 0; i < mons.Length; i++)
+                {
+                    Behaviour Halo = (Behaviour)mons[i].GetComponent("Halo");
+                    Halo.enabled = false;
+                }
+                heroController_Script._isChangeState = false;
+                heroController_Script._isclick = false;
+            }
+
+            
         }
         else
         {
             movement();
         }
-
-        
-       
 	}
 
     private void OnMouseDown()
     {
         if (heroController_Script._isChangeState)
         {
-            print("select");
-            Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
-            Halo.enabled = false;
-            heroController_Script._isChangeState = false;
+            //_instanceID = GetInstanceID();
+            //heroController_Script._freezeMon = GetInstanceID();
+            _isFreeze = true;
+            turnManager_Script.actionPoint--;
+            heroController_Script._isclick = true;
+            print(heroController_Script._isclick);
+            print(gameObject.name + ": _isFreeze = " + _isFreeze);
         }
        
     }

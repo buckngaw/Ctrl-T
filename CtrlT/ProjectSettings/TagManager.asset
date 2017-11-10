@@ -8,6 +8,8 @@ TagManager:
   - Hero
   - Enemy
   - star
+  - hero
+  - enemy
   layers:
   - Default
   - TransparentFX

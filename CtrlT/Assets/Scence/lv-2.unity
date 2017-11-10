@@ -578,6 +578,7 @@ MonoBehaviour:
   - {x: 2, y: 1, z: 1}
   - {x: 2, y: 1, z: 2}
   - {x: 2, y: 1, z: 3}
+  _isFreeze: 0
 --- !u!23 &391198292
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2184,7 +2185,7 @@ Prefab:
     - target: {fileID: 114253589544325148, guid: 090e05c1e4249c44d939c325dbf9ee74,
         type: 2}
       propertyPath: actionPoint
-      value: 9999
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114253589544325148, guid: 090e05c1e4249c44d939c325dbf9ee74,
         type: 2}
@@ -2194,7 +2195,7 @@ Prefab:
     - target: {fileID: 114253589544325148, guid: 090e05c1e4249c44d939c325dbf9ee74,
         type: 2}
       propertyPath: typeHeroSkill
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 090e05c1e4249c44d939c325dbf9ee74, type: 2}

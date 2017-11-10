@@ -19,9 +19,7 @@ public class Dynamicbtn : MonoBehaviour
     public List<float> savedPostionButtonTurn;
 
     private bool isTurn;    
-    private int _temp = 0;
     private int _turn;
-    private Vector3 i;
     private int _line;
     private int _heroTurn;
     
