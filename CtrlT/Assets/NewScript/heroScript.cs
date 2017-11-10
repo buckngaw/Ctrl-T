@@ -21,10 +21,11 @@ public class heroScript : MonoBehaviour {
 
 
     private Vector3 _targetPosition;
-    private float _movespeed = 4.0f;
     private Vector3 _tileCheckerPosition;
+    private float _movespeed = 4.0f; 
     private float _winPointX;
     private float _winPointZ;
+    private int _countStar;
 
 
     // Use this for initialization
@@ -97,21 +98,21 @@ public class heroScript : MonoBehaviour {
         {
             if (Main_Script.typeHeroSkill == 3)
             {
-                /*if (_countStar == turnManager_Script.countStarWin)
+                if (_countStar == Main_Script.countStarWin)
                 {
                     print("Win");
-                    _isEndGame = true;
+                    Main_Script._isEndGame = true;
                     //print(turnManager_Script.isWarp);
-                    if (turnManager_Script.isWarp)
+                    /*if (turnManager_Script.isWarp)
                     {
                         SceneManager.LoadScene(Warp);
                     }
                     else
-                    {
-                        endGameImageWin.gameObject.SetActive(_isEndGame);
-                        restartGame.gameObject.SetActive(_isEndGame);
-                    }
-                }*/
+                    {*/
+                    Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
+                    Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                    //}
+                }
             }
             else
             {
@@ -178,10 +179,10 @@ public class heroScript : MonoBehaviour {
         //star
         if (other.gameObject.tag == "star")
         {
-            print("OUCH!");/*
+            print("OUCH!");
             _countStar++;
             other.gameObject.SetActive(false);
-            _textStar.text = " " + _countStar;*/
+            Main_Script._textStar.text = " " + _countStar;
         }
     }
 

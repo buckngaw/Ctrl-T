@@ -11,11 +11,12 @@ public class enemyScript : MonoBehaviour {
     public List<int> savedEnemyTurn { get; set; }
 
     public Vector3[] positions;
-    public bool isFreeze { get; set; }
+    public bool isFreeze;//{ get; set; }
     public int _enemyTurn { get; set; }
 
     private float _movespeed = 4.0f;
     public bool _isReversing { get; set; }
+    public bool _isReversingAndFreezing { get; set; }
 
     // Use this for initialization
     void Start () {
@@ -27,16 +28,18 @@ public class enemyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
-        
         //_isReversing = Main_Script.isReversing;
         if (_isReversing)
         {
             int index = _enemyTurn % positions.Length;
             transform.position = positions[index];
             _isReversing = false;
-        } 
+        }
+        /*else if (_isReversingAndFreezing)
+         {
+            _isReversingAndFreezing = false;
+            // print("freeze");
+         }*/
         else
         {
             int index = _enemyTurn % positions.Length;
@@ -54,4 +57,14 @@ public class enemyScript : MonoBehaviour {
         //turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
     }
 
+    private void OnMouseDown()
+    {
+        if (Main_Script._isfreeze)
+        {
+            print("freeze");
+            isFreeze = true;
+            Main_Script.actionPoint--;
+            Main_Script._isfreeze = false;
+        } 
+    }
 }
