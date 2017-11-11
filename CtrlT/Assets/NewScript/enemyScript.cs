@@ -10,8 +10,9 @@ public class enemyScript : MonoBehaviour {
 
     public List<int> savedEnemyTurn { get; set; }
 
+    public GameObject freezeGameObject;
     public Vector3[] positions;
-    public bool isFreeze;//{ get; set; }
+    public bool isFreeze { get; set; }
     public int _enemyTurn { get; set; }
 
     private float _movespeed = 4.0f;
@@ -35,11 +36,11 @@ public class enemyScript : MonoBehaviour {
            // print("transform enemy: " + transform.position);
             _isReversing = false;
         }
-        /*else if (_isReversingAndFreezing)
+        else if (Main_Script._isfreeze)
          {
-            _isReversingAndFreezing = false;
+            freezeGameObject.gameObject.SetActive(true);
             // print("freeze");
-         }*/
+         }
         else
         {
             int index = _enemyTurn % positions.Length;

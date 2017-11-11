@@ -52,11 +52,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionPoint: 15
-  typeHeroSkill: 0
+  typeHeroSkill: 2
+  countStarWin: 0
   _textAP: {fileID: 0}
   winPoint: {x: 5, y: 0.5, z: 2}
+  _textStar: {fileID: 0}
+  _textStarBack: {fileID: 0}
   endGameImageWin: {fileID: 0}
   endGameImageLose: {fileID: 0}
+  starImage: {fileID: 0}
+  freezeButton: {fileID: 0}
   restartGame: {fileID: 0}
   buttonManager_GameObject: {fileID: 0}
-  _isEndGame: 0

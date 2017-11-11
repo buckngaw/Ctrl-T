@@ -18,9 +18,10 @@ public class buttonManager : MonoBehaviour {
 
     public List<float> savedPostionButtonTurn;
 
+    public int _line { get; set; }
+
     private bool isTurn;
     private int _turn;
-    private int _line;
     private int _heroTurn;
 
     // Use this for initialization
