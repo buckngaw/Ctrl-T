@@ -35,6 +35,7 @@ public class heroScript : MonoBehaviour {
         direction = new bool[4];
         isMove = false;
         _targetPosition = transform.position;
+        transform.position = new Vector3(0, 7f, 0);
 
         _winPointX = Main_Script.winPoint.x;
         _winPointZ = Main_Script.winPoint.z;

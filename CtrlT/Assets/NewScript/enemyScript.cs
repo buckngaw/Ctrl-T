@@ -22,8 +22,7 @@ public class enemyScript : MonoBehaviour {
     void Start () {
         savedEnemyTurn = new List<int>();
         Main_Script = Main_GameObject.GetComponent<Main>();
-        savedEnemyTurn.Add(0);
-        //_enemyTurn = 0;
+        //savedEnemyTurn.Add(0);
     }
 	
 	// Update is called once per frame
@@ -33,6 +32,7 @@ public class enemyScript : MonoBehaviour {
         {
             int index = _enemyTurn % positions.Length;
             transform.position = positions[index];
+           // print("transform enemy: " + transform.position);
             _isReversing = false;
         }
         /*else if (_isReversingAndFreezing)
@@ -63,7 +63,10 @@ public class enemyScript : MonoBehaviour {
         {
             print("freeze");
             isFreeze = true;
+            Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
+            Halo.enabled = true;
             Main_Script.actionPoint--;
+            Main_Script._isClickedFreeze = true;
             Main_Script._isfreeze = false;
         } 
     }

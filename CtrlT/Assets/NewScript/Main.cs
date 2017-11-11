@@ -17,18 +17,17 @@ public class Main : MonoBehaviour {
     public Image starImage;
     public Button freezeButton;
     public Button restartGame;
+    public GameObject buttonManager_GameObject;
+
+    public bool _isEndGame { get; set; }
+    public bool _isfreeze { get; set; }
+    public bool _isClickedFreeze { get; set; }
 
     private heroScript hero_Script;
     private enemyScript enemy_Script;
-
-    public GameObject buttonManager_GameObject;
     private buttonManager button_Script;
-
     private int _reverseTurn;
-
     private Vector3 _tileCheckerPosition;
-    public bool _isEndGame { get; set; }
-    public bool _isfreeze { get; set; }
 
     // Use this for initialization
     void Start () {
@@ -115,7 +114,7 @@ public class Main : MonoBehaviour {
                         {
                             enemy_Script = enemy.GetComponent<enemyScript>();
                             //print("enemy transform: " + enemy_Script.transform.position);
-                                enemy_Script.EnemyOnMove();
+                            enemy_Script.EnemyOnMove();
                         }
                         hero_Script.heroFinishedMove = false;
                     }
@@ -136,6 +135,7 @@ public class Main : MonoBehaviour {
         {
             button_Script.createButton(1, clickedButton); // 1 = new line , get btn that clicked
             _reverseTurn = reverseTurn;
+            print("reverseTurn: " + _reverseTurn);
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
             foreach (GameObject enemy in enemies)
             {
@@ -143,7 +143,7 @@ public class Main : MonoBehaviour {
                 if (enemy_Script.isFreeze)
                 {
                     //enemy_Script._isReversingAndFreezing = true;
-                    enemy_Script._enemyTurn = enemy_Script.savedEnemyTurn[enemy_Script._enemyTurn];
+                    //enemy_Script._enemyTurn = enemy_Script.savedEnemyTurn[enemy_Script._enemyTurn];
                     //print("enemyTurn in freeze: " + enemy_Script._enemyTurn);
                     enemy_Script.savedEnemyTurn.Add(enemy_Script._enemyTurn); // use old position
                 }
@@ -151,14 +151,15 @@ public class Main : MonoBehaviour {
                 {
                     enemy_Script._isReversing = true;
                     enemy_Script._enemyTurn = enemy_Script.savedEnemyTurn[_reverseTurn];
+                    print("savedEnemyTurn: " + enemy_Script._enemyTurn);
                     enemy_Script.savedEnemyTurn.Add(enemy_Script._enemyTurn);
-                    enemy_Script._enemyTurn++;
+                    //enemy_Script._enemyTurn++;
                 }
             }
             hero_Script._heroTurn++;
             actionPoint--;
             _textAP.text = " " + actionPoint;
-           print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
+            print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
 
         }
     }
@@ -166,13 +167,27 @@ public class Main : MonoBehaviour {
     public void freezeEnvi()
     {
         //reset enemies're isfreeze
+        _isfreeze = true;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
         foreach (GameObject enemy in enemies)
         {
+            Behaviour Halo = (Behaviour)enemy.GetComponent("Halo");
+            Halo.enabled = false;
             enemy_Script = enemy.GetComponent<enemyScript>();
             enemy_Script.isFreeze = false;
         }
-        _isfreeze = true;
+        // reset halo when choose to freeze enemy
+        /*if (_isClickedFreeze)
+        {
+            print("eiei");
+            foreach (GameObject enemy in enemies)
+            {
+                Behaviour Halo = (Behaviour)enemy.GetComponent("Halo");
+                Halo.enabled = false;
+            }
+            _isClickedFreeze = false;
+        }*/
+
         _textAP.text = " " + actionPoint;
     }
 }
