@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class heroScript : MonoBehaviour {
 
@@ -18,6 +19,7 @@ public class heroScript : MonoBehaviour {
     public GameObject tileCheckerL;
     public GameObject tileCheckerF;
     public GameObject tileCheckerB;
+    public string Warp;
 
 
     private Vector3 _targetPosition;
@@ -104,15 +106,15 @@ public class heroScript : MonoBehaviour {
                     print("Win");
                     Main_Script._isEndGame = true;
                     //print(turnManager_Script.isWarp);
-                    /*if (turnManager_Script.isWarp)
+                    /*if (Main_Script.isWarp)
                     {
                         SceneManager.LoadScene(Warp);
-                    }
-                    else
-                    {*/
+                    }*/
+                    //else
+                    {
                     Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
                     Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
-                    //}
+                    }
                 }
             }
             else
@@ -120,11 +122,11 @@ public class heroScript : MonoBehaviour {
                 print("Win");
                 Main_Script._isEndGame = true;
                 //print(turnManager_Script.isWarp);
-                /*if (turnManager_Script.isWarp)
+                /*if (Main_Script.isWarp)
                 {
                     SceneManager.LoadScene(Warp);
-                }
-                else*/
+                }*/
+                //else
                 {
                     Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
                     Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);

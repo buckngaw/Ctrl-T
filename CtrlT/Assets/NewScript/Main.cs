@@ -20,6 +20,7 @@ public class Main : MonoBehaviour {
     public Button freezeButton;
     public Button restartGame;
     public GameObject buttonManager_GameObject;
+    public bool isWarp;
 
     public bool _isEndGame { get; set; }
     public bool _isfreeze { get; set; }
