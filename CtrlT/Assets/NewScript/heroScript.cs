@@ -97,27 +97,10 @@ public class heroScript : MonoBehaviour {
             }
         }
 
+        //Check Win?
         if (transform.position.x == _winPointX && transform.position.z == _winPointZ)
         {
-            if (Main_Script.typeHeroSkill == 3)
-            {
-                if (_countStar == Main_Script.countStarWin)
-                {
-                    print("Win");
-                    Main_Script._isEndGame = true;
-                    //print(turnManager_Script.isWarp);
-                    /*if (Main_Script.isWarp)
-                    {
-                        SceneManager.LoadScene(Warp);
-                    }*/
-                    //else
-                    {
-                    Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-                    Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
-                    }
-                }
-            }
-            else
+            if (_countStar == Main_Script.countStarWin)
             {
                 print("Win");
                 Main_Script._isEndGame = true;
@@ -128,14 +111,14 @@ public class heroScript : MonoBehaviour {
                 }*/
                 //else
                 {
-                    Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-                    Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
+                Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
                 }
             }
         }
         else
         {
-            if (Main_Script.actionPoint == 0)
+            if (Main_Script.actionPoint == 0 & transform.position.x != _winPointX && transform.position.z != _winPointZ)
             {
                 print("Lose");
                 Main_Script._isEndGame = true;

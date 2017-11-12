@@ -33,7 +33,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1370742488526112}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -51,11 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fd930d4a7c7a34087df754d48c78a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionPoint: 15
-  typeHeroSkill: 2
-  countStarWin: 0
+  actionPoint: 35
+  countStarWin: 3
+  fixActionPointTurn: 0
   _textAP: {fileID: 0}
-  winPoint: {x: 5, y: 0.5, z: 2}
+  winPoint: {x: 4, y: 0, z: 5}
   _textStar: {fileID: 0}
   _textStarBack: {fileID: 0}
   endGameImageWin: {fileID: 0}
@@ -64,3 +64,5 @@ MonoBehaviour:
   freezeButton: {fileID: 0}
   restartGame: {fileID: 0}
   buttonManager_GameObject: {fileID: 0}
+  ChooseFeature: 000000
+  isWarp: 0

@@ -906,19 +906,14 @@ Prefab:
       objectReference: {fileID: 244037399}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
-      propertyPath: actionPoint
-      value: 35
-      objectReference: {fileID: 0}
+      propertyPath: _textStar
+      value: 
+      objectReference: {fileID: 1786622694}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
-      propertyPath: winPoint.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
-        type: 2}
-      propertyPath: winPoint.z
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: _textStarBack
+      value: 
+      objectReference: {fileID: 23801713}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
       propertyPath: endGameImageWin
@@ -931,26 +926,6 @@ Prefab:
       objectReference: {fileID: 685192195}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
-      propertyPath: restartGame
-      value: 
-      objectReference: {fileID: 685192194}
-    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
-        type: 2}
-      propertyPath: buttonManager_GameObject
-      value: 
-      objectReference: {fileID: 865436664}
-    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
-        type: 2}
-      propertyPath: _textStar
-      value: 
-      objectReference: {fileID: 1786622694}
-    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
-        type: 2}
-      propertyPath: _textStarBack
-      value: 
-      objectReference: {fileID: 23801713}
-    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
-        type: 2}
       propertyPath: starImage
       value: 
       objectReference: {fileID: 914548438}
@@ -961,18 +936,18 @@ Prefab:
       objectReference: {fileID: 1877036808}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
-      propertyPath: typeHeroSkill
-      value: 3
-      objectReference: {fileID: 0}
+      propertyPath: restartGame
+      value: 
+      objectReference: {fileID: 685192194}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
-      propertyPath: countStarWin
-      value: 3
-      objectReference: {fileID: 0}
+      propertyPath: buttonManager_GameObject
+      value: 
+      objectReference: {fileID: 865436664}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
-      propertyPath: winPoint.y
-      value: 0
+      propertyPath: ChooseFeature.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d2849dad497d7d4e86ae13262c47cbf, type: 2}

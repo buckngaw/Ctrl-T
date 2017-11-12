@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour {
 
     public int actionPoint;
-    // 1 = normal , 2 = freeze & normal  , 3 = star , 4 = freeze & normal & fix AP
-    public int typeHeroSkill; 
+    //public int typeHeroSkill; 
     public int countStarWin;
     public int fixActionPointTurn;
     public Text _textAP;
@@ -20,6 +19,7 @@ public class Main : MonoBehaviour {
     public Button freezeButton;
     public Button restartGame;
     public GameObject buttonManager_GameObject;
+    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint 
     public bool isWarp;
 
     public bool _isEndGame { get; set; }
@@ -44,7 +44,19 @@ public class Main : MonoBehaviour {
 
         _numReverseTurn = 0;
 
-        if (typeHeroSkill == 1) // normal mode
+        freezeButton.gameObject.SetActive(false);
+        starImage.gameObject.SetActive(false);
+
+        if (ChooseFeature[0])
+        {
+            freezeButton.gameObject.SetActive(true);
+        }
+        if (ChooseFeature[1])
+        {
+            starImage.gameObject.SetActive(true);
+            _textStarBack.text = "  /" + countStarWin;
+        }
+        /*if (typeHeroSkill == 1) // normal mode
         {
             freezeButton.gameObject.SetActive(false);
             starImage.gameObject.SetActive(false);
@@ -62,7 +74,7 @@ public class Main : MonoBehaviour {
         if(typeHeroSkill == 4) //fix AP
         {
             starImage.gameObject.SetActive(false);
-        }
+        }*/
 
         endGameImageWin.gameObject.SetActive(false);
         endGameImageLose.gameObject.SetActive(false);
@@ -143,7 +155,7 @@ public class Main : MonoBehaviour {
     {
         if (!_isEndGame)
         {
-            if(typeHeroSkill == 4 & fixActionPointTurn == _numReverseTurn)
+            if(ChooseFeature[2] & fixActionPointTurn == _numReverseTurn)
             {
                 print("Can't Reverse Again!!");
             }
