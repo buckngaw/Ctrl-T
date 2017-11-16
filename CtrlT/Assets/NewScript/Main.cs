@@ -155,7 +155,7 @@ public class Main : MonoBehaviour {
     {
         if (!_isEndGame)
         {
-            if(ChooseFeature[2] & fixActionPointTurn == _numReverseTurn)
+            if(ChooseFeature[2] == true && fixActionPointTurn == _numReverseTurn)
             {
                 print("Can't Reverse Again!!");
             }

@@ -96,9 +96,10 @@ public class heroScript : MonoBehaviour {
                 direction[3] = true; //down
             }
         }
-
+        Debug.Log("x: " + transform.position.x + " z: " + transform.position.z);
+        Debug.Log("winx: " + _winPointX + " winz: " + _winPointZ);
         //Check Win?
-        if (transform.position.x == _winPointX && transform.position.z == _winPointZ)
+        if ((transform.position.x == _winPointX) && (transform.position.z == _winPointZ))
         {
             if (_countStar == Main_Script.countStarWin)
             {
@@ -118,7 +119,7 @@ public class heroScript : MonoBehaviour {
         }
         else
         {
-            if (Main_Script.actionPoint == 0 & transform.position.x != _winPointX && transform.position.z != _winPointZ)
+            if (Main_Script.actionPoint <= 0 &&(transform.position.x != _winPointX && transform.position.z != _winPointZ))
             {
                 print("Lose");
                 Main_Script._isEndGame = true;

@@ -387,7 +387,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1286756908
+  randomSeed: 1699710192
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4292,6 +4292,18 @@ Prefab:
       propertyPath: Main_GameObject
       value: 
       objectReference: {fileID: 589297152}
+    - target: {fileID: 4028560836263978, guid: 3f0b3d1397f5b0241b9249f8aec914a3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028560836263978, guid: 3f0b3d1397f5b0241b9249f8aec914a3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028560836263978, guid: 3f0b3d1397f5b0241b9249f8aec914a3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f0b3d1397f5b0241b9249f8aec914a3, type: 2}
   m_IsPrefabParent: 0
@@ -4567,6 +4579,31 @@ Prefab:
       propertyPath: ChooseFeature.Array.data[2]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
+        type: 2}
+      propertyPath: actionPoint
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
+        type: 2}
+      propertyPath: countStarWin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
+        type: 2}
+      propertyPath: fixActionPointTurn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
+        type: 2}
+      propertyPath: winPoint.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
+        type: 2}
+      propertyPath: winPoint.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d2849dad497d7d4e86ae13262c47cbf, type: 2}
   m_IsPrefabParent: 0
@@ -4620,6 +4657,10 @@ Prefab:
       propertyPath: Main_GameObject
       value: 
       objectReference: {fileID: 589297152}
+    - target: {fileID: 4561143372484554, guid: 7b4354c7b1c88ce41bc151ebc71164fd, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b4354c7b1c88ce41bc151ebc71164fd, type: 2}
   m_IsPrefabParent: 0
@@ -5676,7 +5717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1710782987
 MonoBehaviour:
   m_ObjectHideFlags: 0
