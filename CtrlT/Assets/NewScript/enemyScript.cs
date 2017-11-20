@@ -12,10 +12,12 @@ public class enemyScript : MonoBehaviour {
 
     public GameObject freezeGameObject;
     public Vector3[] positions;
+    public Vector3 collectPosition;
     public bool isFreeze { get; set; }
     public int _enemyTurn { get; set; }
 
     private float _movespeed = 4.0f;
+    public bool onTriggle { get; set; }
     public bool _isReversing { get; set; }
     public bool _isReversingAndFreezing { get; set; }
 
@@ -23,6 +25,7 @@ public class enemyScript : MonoBehaviour {
     void Start () {
         savedEnemyTurn = new List<int>();
         Main_Script = Main_GameObject.GetComponent<Main>();
+        //onTriggle = false;
         //savedEnemyTurn.Add(0);
     }
 	
@@ -45,7 +48,29 @@ public class enemyScript : MonoBehaviour {
         {
             int index = _enemyTurn % positions.Length;
             transform.position = Vector3.MoveTowards(transform.position, positions[index], _movespeed * Time.deltaTime);
-
+        }
+        if (Main_Script.ChooseFeature[3])
+        {
+            if(transform.position == collectPosition)
+            {
+                onTriggle = true;
+                print("true");
+            }
+            else
+            {
+                onTriggle = false;
+                print("false");
+            }
+            /*if (onTriggle)
+            {
+                Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
+                Halo.enabled = true;
+            }
+            else
+            {
+                Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
+                Halo.enabled = false;
+            }*/
         }
 
     }
@@ -71,4 +96,19 @@ public class enemyScript : MonoBehaviour {
             Main_Script._isfreeze = false;
         } 
     }
+
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "collectCystal")
+        {
+           // print("cystal");
+            if (Main_Script.ChooseFeature[3] == true)
+            {
+                onTriggle = true;
+                Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
+                Halo.enabled = true;
+            }
+        }
+        
+    }*/
 }

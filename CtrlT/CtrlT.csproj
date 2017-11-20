@@ -78,12 +78,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Material\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
+    <Compile Include="Assets\download\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
     <Compile Include="Assets\NewScript\buttonManager.cs" />
     <Compile Include="Assets\NewScript\buttonTurn.cs" />
     <Compile Include="Assets\NewScript\enemyScript.cs" />
     <Compile Include="Assets\NewScript\heroScript.cs" />
     <Compile Include="Assets\NewScript\Main.cs" />
+    <Compile Include="Assets\NewScript\movement.cs" />
+    <Compile Include="Assets\NewScript\spotlightOnTrigger.cs" />
     <Compile Include="Assets\Script\Dynamicbtn.cs" />
     <Compile Include="Assets\Script\EndScript.cs" />
     <Compile Include="Assets\Script\heroController.cs" />

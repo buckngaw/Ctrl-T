@@ -19,12 +19,13 @@ public class Main : MonoBehaviour {
     public Button freezeButton;
     public Button restartGame;
     public GameObject buttonManager_GameObject;
-    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint 
+    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint , 3 = monCollectItem
     public bool isWarp;
 
     public bool _isEndGame { get; set; }
     public bool _isfreeze { get; set; }
     public bool _isClickedFreeze { get; set; }
+    public bool onTrigger { get; set; }
 
     private heroScript hero_Script;
     private enemyScript enemy_Script;
@@ -43,6 +44,7 @@ public class Main : MonoBehaviour {
         button_Script = buttonManager_GameObject.GetComponent<buttonManager>();
 
         _numReverseTurn = 0;
+        onTrigger = false;
 
         freezeButton.gameObject.SetActive(false);
         starImage.gameObject.SetActive(false);
@@ -137,6 +139,7 @@ public class Main : MonoBehaviour {
                             enemy_Script = enemy.GetComponent<enemyScript>();
                             //print("enemy transform: " + enemy_Script.transform.position);
                             enemy_Script.EnemyOnMove();
+                            //enemy_Script.onTriggle = false;
                         }
                         hero_Script.heroFinishedMove = false;
                     }
@@ -147,7 +150,25 @@ public class Main : MonoBehaviour {
             {
                 // freezing
             }
-
+            if (ChooseFeature[3])
+            {
+                bool win = false;
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+                foreach (GameObject enemy in enemies)
+                {
+                    enemy_Script = enemy.GetComponent<enemyScript>();
+                    if (enemy_Script.onTriggle)
+                    {
+                        win = true;
+                    }
+                    else
+                    {
+                        win = false;
+                        break;
+                    }
+                }
+                onTrigger = win;
+            }
         }
     }
 
@@ -183,6 +204,10 @@ public class Main : MonoBehaviour {
                         enemy_Script.savedEnemyTurn.Add(enemy_Script._enemyTurn);
                         //enemy_Script._enemyTurn++;
                     }
+                    /*if (ChooseFeature[3] && !enemy_Script.onTriggle)
+                    {
+                        enemy_Script.onTriggle = false;
+                    }*/
                 }
                 hero_Script._heroTurn++;
                 _numReverseTurn++;
@@ -190,6 +215,7 @@ public class Main : MonoBehaviour {
                 _textAP.text = " " + actionPoint;
                 print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
             }
+        
         }
     }
 

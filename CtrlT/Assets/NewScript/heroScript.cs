@@ -96,30 +96,61 @@ public class heroScript : MonoBehaviour {
                 direction[3] = true; //down
             }
         }
-        Debug.Log("x: " + transform.position.x + " z: " + transform.position.z);
-        Debug.Log("winx: " + _winPointX + " winz: " + _winPointZ);
+        //Debug.Log("x: " + transform.position.x + " z: " + transform.position.z);
+        //Debug.Log("winx: " + _winPointX + " winz: " + _winPointZ);
         //Check Win?
         if ((transform.position.x == _winPointX) && (transform.position.z == _winPointZ))
         {
-            if (_countStar == Main_Script.countStarWin)
+            if (!Main_Script.ChooseFeature[3])
             {
-                print("Win");
-                Main_Script._isEndGame = true;
-                //print(turnManager_Script.isWarp);
-                /*if (Main_Script.isWarp)
+                if (_countStar == Main_Script.countStarWin)
                 {
-                    SceneManager.LoadScene(Warp);
-                }*/
-                //else
+                    print("Win");
+                    Main_Script._isEndGame = true;
+                    //print(turnManager_Script.isWarp);
+                    /*if (Main_Script.isWarp)
+                    {
+                        SceneManager.LoadScene(Warp);
+                    }*/
+                    //else
+                    {
+                        Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
+                        Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                    }
+                }
+            }else if (Main_Script.ChooseFeature[3])
+            {
+                if (Main_Script.onTrigger)
                 {
-                Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-                Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                    print("Win");
+                    Main_Script._isEndGame = true;
+                    //print(turnManager_Script.isWarp);
+                    /*if (Main_Script.isWarp)
+                    {
+                        SceneManager.LoadScene(Warp);
+                    }*/
+                    //else
+                    {
+                        Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
+                        Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                    }
+                }
+                else if (Main_Script.actionPoint <= 0 && (transform.position.x != _winPointX && transform.position.z != _winPointZ))
+                {
+                    if(Main_Script.ChooseFeature[3] || !Main_Script.ChooseFeature[3])
+                    {
+                        print("Lose");
+                        Main_Script._isEndGame = true;
+                        Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
+                        Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                    }
                 }
             }
+            
         }
         else
         {
-            if (Main_Script.actionPoint <= 0 &&(transform.position.x != _winPointX && transform.position.z != _winPointZ))
+            if (Main_Script.actionPoint <= 0 )
             {
                 print("Lose");
                 Main_Script._isEndGame = true;
