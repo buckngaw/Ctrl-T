@@ -86,6 +86,7 @@
     <Compile Include="Assets\NewScript\Main.cs" />
     <Compile Include="Assets\NewScript\movement.cs" />
     <Compile Include="Assets\NewScript\spotlightOnTrigger.cs" />
+    <Compile Include="Assets\NewScript\zoomCamera.cs" />
     <Compile Include="Assets\Script\Dynamicbtn.cs" />
     <Compile Include="Assets\Script\EndScript.cs" />
     <Compile Include="Assets\Script\heroController.cs" />

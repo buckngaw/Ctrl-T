@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 7540348}
   - component: {fileID: 7540347}
   - component: {fileID: 7540352}
+  - component: {fileID: 7540353}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -191,13 +192,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 7540346}
-  m_LocalRotation: {x: 0.27506053, y: 0.42205277, z: -0.11202017, w: 0.8565423}
-  m_LocalPosition: {x: -5.79, y: 6.5, z: -4.02}
+  m_LocalRotation: {x: 0.331845, y: 0.20065288, z: -0.055833254, w: 0.9200544}
+  m_LocalPosition: {x: -2.6, y: 7.83, z: -7.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 34.455, y: 53.331, z: 2.8}
+  m_LocalEulerAnglesHint: {x: 39.275, y: 25.410002, z: 2.253}
 --- !u!95 &7540352
 Animator:
   serializedVersion: 3
@@ -215,6 +216,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &7540353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7540346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806eba10d143c794cb0c85be9736da9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &52847227
 Prefab:
   m_ObjectHideFlags: 0
@@ -588,6 +600,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 930262022}
+    - target: {fileID: 114747200453768506, guid: 45c213e51da831f459fae1e12518112e,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 114747200453768506, guid: 45c213e51da831f459fae1e12518112e,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 114747200453768506, guid: 45c213e51da831f459fae1e12518112e,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.882353
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45c213e51da831f459fae1e12518112e, type: 2}
   m_IsPrefabParent: 0
