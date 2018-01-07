@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33779707775790566}
   - component: {fileID: 65604743571675930}
   - component: {fileID: 23886443930802512}
+  - component: {fileID: 114522678969812876}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Tile
@@ -55,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 82b2e2295578fe34f864af56c18a7108, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,3 +94,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114522678969812876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890573382647594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da16385f5f4e104ba9fcc8452dd2559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hero_GameObject: {fileID: 1787213967724436, guid: e1258d8b2c4b9a44daffe068461bc791,
+    type: 2}
+  canWalk: 0

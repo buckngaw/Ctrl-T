@@ -76,23 +76,42 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="simple-firebase-csharp">
+      <HintPath>Assets\SimpleFirebaseUnity\Plugins\simple-firebase-csharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\download\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
-    <Compile Include="Assets\NewScript\buttonManager.cs" />
-    <Compile Include="Assets\NewScript\buttonTurn.cs" />
-    <Compile Include="Assets\NewScript\enemyScript.cs" />
-    <Compile Include="Assets\NewScript\heroScript.cs" />
-    <Compile Include="Assets\NewScript\Main.cs" />
-    <Compile Include="Assets\NewScript\movement.cs" />
-    <Compile Include="Assets\NewScript\spotlightOnTrigger.cs" />
-    <Compile Include="Assets\NewScript\zoomCamera.cs" />
+    <Compile Include="Assets\NewScript\changeBoxColor\statusTile.cs" />
+    <Compile Include="Assets\NewScript\changeBoxColor\testChangeUV.cs" />
+    <Compile Include="Assets\NewScript\GameManager\buttonManager.cs" />
+    <Compile Include="Assets\NewScript\GameManager\buttonTurn.cs" />
+    <Compile Include="Assets\NewScript\GameManager\enemyScript.cs" />
+    <Compile Include="Assets\NewScript\GameManager\heroScript.cs" />
+    <Compile Include="Assets\NewScript\GameManager\LoadMap.cs" />
+    <Compile Include="Assets\NewScript\GameManager\Main.cs" />
+    <Compile Include="Assets\NewScript\GameManager\movement.cs" />
+    <Compile Include="Assets\NewScript\GameManager\spotlightOnTrigger.cs" />
+    <Compile Include="Assets\NewScript\GameManager\zoomCamera.cs" />
+    <Compile Include="Assets\NewScript\globalUser.cs" />
+    <Compile Include="Assets\NewScript\Login\firebaseServiceForLogin.cs" />
+    <Compile Include="Assets\NewScript\Login\firebaseServiceForRegister.cs" />
+    <Compile Include="Assets\NewScript\Login\Notification.cs" />
+    <Compile Include="Assets\NewScript\Login\userData.cs" />
+    <Compile Include="Assets\NewScript\Login\usersData.cs" />
     <Compile Include="Assets\Script\Dynamicbtn.cs" />
     <Compile Include="Assets\Script\EndScript.cs" />
     <Compile Include="Assets\Script\heroController.cs" />
     <Compile Include="Assets\Script\PrefabButton.cs" />
     <Compile Include="Assets\Script\turnManager.cs" />
     <Compile Include="Assets\Script\turnPosition.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Sample\AutoRotate.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Sample\MoveControl.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Sample\SampleScript.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\SimpleFirebaseUnity\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\SimpleFirebaseUnity\Plugins\simple-firebase-csharp.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

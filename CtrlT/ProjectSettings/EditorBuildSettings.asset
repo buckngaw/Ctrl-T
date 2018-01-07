@@ -8,3 +8,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scence/lv-1.unity
     guid: cf2e3078d2373624b8ee9ceabb0de4f9
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1-0.unity
+    guid: 3b1098d524d078f42893775018bf938f
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1-1.unity
+    guid: 3e166e321b1ec0148855a2c2898dba10
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1-2.unity
+    guid: 000c9c3aeb5b45245852f408d655e5eb
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1-3.unity
+    guid: 072d1edddf2093349be4039844a055c0
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1-4.unity
+    guid: 597ad82b62cb9384ca52dfa67f32a36c
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1-5.unity
+    guid: 65d717eb15246c84db825bca99645240
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1-6.unity
+    guid: 49fa08eb27a2bed41b54ff712647f4c7
+  - enabled: 1
+    path: Assets/NewScence/level/Login/Login.unity
+    guid: 9d9c6006ef7fec2449b61cbd89284012
+  - enabled: 1
+    path: Assets/NewScence/level/Login/Register.unity
+    guid: 9ad41783caddaa24ab7c68821fb9af59
+  - enabled: 1
+    path: Assets/NewScence/level/Menu.unity
+    guid: 7c1185137af192a41a7518e413922a11
