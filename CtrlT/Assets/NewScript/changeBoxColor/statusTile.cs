@@ -26,8 +26,9 @@ public class statusTile : MonoBehaviour {
     {
         if (canWalk)
         {
-            //print("canWalk: " + canWalk);
+            print("canWalk: " + canWalk);
             Hero_Script.checkDirection(this.gameObject);
+            print("after");
             //return tile that canWalk = true
         }
         //Application.LoadLevel("SomeLevel");

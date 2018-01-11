@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/NewScence/before play/episode.unity
+- path: Assets/NewScence/level/Login/FirstPage.unity
   isLoaded: 1
   isActive: 1
