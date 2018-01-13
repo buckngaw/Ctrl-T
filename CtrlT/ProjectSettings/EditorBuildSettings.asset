@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 784784bfc2526e243bfd153236024be5
   - enabled: 1
     path: Assets/NewScence/level/Login/FirstPage.unity
-    guid: 784784bfc2526e243bfd153236024be5
+    guid: 2f6af423df341b645a856335491b253f
   - enabled: 1
     path: Assets/NewScence/level/level/lv1-0.unity
     guid: 3b1098d524d078f42893775018bf938f
@@ -38,3 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NewScence/level/Menu.unity
     guid: 7c1185137af192a41a7518e413922a11
+  - enabled: 1
+    path: Assets/NewScence/level/Login/SelectEpisode.unity
+    guid: 3032e156f1590ca4bb43bd91bbb7e380
