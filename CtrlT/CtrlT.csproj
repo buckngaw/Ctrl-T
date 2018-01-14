@@ -94,6 +94,9 @@
     <Compile Include="Assets\NewScript\GameManager\spotlightOnTrigger.cs" />
     <Compile Include="Assets\NewScript\GameManager\zoomCamera.cs" />
     <Compile Include="Assets\NewScript\globalUser.cs" />
+    <Compile Include="Assets\NewScript\Login\animationWater\MakeWaterNoise.cs" />
+    <Compile Include="Assets\NewScript\Login\animationWater\WaterPlanGen.cs" />
+    <Compile Include="Assets\NewScript\Login\clickLevel.cs" />
     <Compile Include="Assets\NewScript\Login\firebaseServiceForLogin.cs" />
     <Compile Include="Assets\NewScript\Login\firebaseServiceForRegister.cs" />
     <Compile Include="Assets\NewScript\Login\Notification.cs" />
@@ -108,6 +111,8 @@
     <Compile Include="Assets\SimpleFirebaseUnity\Sample\AutoRotate.cs" />
     <Compile Include="Assets\SimpleFirebaseUnity\Sample\MoveControl.cs" />
     <Compile Include="Assets\SimpleFirebaseUnity\Sample\SampleScript.cs" />
+    <Compile Include="Assets\TornadoBanditsStudio\Low Poly Free Pack\Scripts\TBS_CameraMovement.cs" />
+    <Compile Include="Assets\TornadoBanditsStudio\Low Poly Free Pack\Water\TBS_Water.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SimpleFirebaseUnity\Plugins\Android\AndroidManifest.xml" />

@@ -9,17 +9,20 @@ public class Main : MonoBehaviour {
     //public int typeHeroSkill; 
     public int countStarWin;
     public int fixActionPointTurn;
+    public int fixNumFreeze;
     public Text _textAP;
     public Vector3 winPoint;
     public Text _textStar;
     public Text _textStarBack;
+    public Text _fixReversetext;
+    public Text _fixFreezetext;
     public RawImage endGameImageWin;
     public RawImage endGameImageLose;
     public Image starImage;
     public Button freezeButton;
     public Button restartGame;
     public GameObject buttonManager_GameObject;
-    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint , 3 = monCollectItem
+    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint , 3 = monCollectItem , 4 = FixFreeze
     public bool isWarp;
 
     public bool _isEndGame { get; set; }
@@ -32,6 +35,7 @@ public class Main : MonoBehaviour {
     private buttonManager button_Script;
     private int _reverseTurn;
     private int _numReverseTurn;
+    private int _numFreeze;
     private Vector3 _tileCheckerPosition;
 
     // Use this for initialization
@@ -44,6 +48,7 @@ public class Main : MonoBehaviour {
         button_Script = buttonManager_GameObject.GetComponent<buttonManager>();
 
         _numReverseTurn = 0;
+        _numFreeze = 0;
         onTrigger = false;
 
         freezeButton.gameObject.SetActive(false);
@@ -57,6 +62,15 @@ public class Main : MonoBehaviour {
         {
             starImage.gameObject.SetActive(true);
             _textStarBack.text = "  /" + countStarWin;
+        }
+        if (ChooseFeature[2])
+        {
+            print("fixActionPointTurn" + fixActionPointTurn);
+            _fixReversetext.text = " " + fixActionPointTurn;
+        }
+        if (ChooseFeature[4])
+        {
+            _fixFreezetext.text = " " + fixNumFreeze;
         }
         /*if (typeHeroSkill == 1) // normal mode
         {
@@ -211,6 +225,7 @@ public class Main : MonoBehaviour {
                 }
                 hero_Script._heroTurn++;
                 _numReverseTurn++;
+                _fixReversetext.text = " " + (fixActionPointTurn - _numReverseTurn);
                 actionPoint--;
                 _textAP.text = " " + actionPoint;
                 print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
@@ -221,32 +236,45 @@ public class Main : MonoBehaviour {
 
     public void freezeEnvi()
     {
-        //reset enemies're isfreeze
-        _isfreeze = true;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
-        foreach (GameObject enemy in enemies)
+        if (!_isEndGame)
         {
-           
-                Behaviour Halo = (Behaviour)enemy.GetComponent("Halo");
-                Halo.enabled = false;
-                enemy_Script = enemy.GetComponent<enemyScript>();
-                enemy_Script.isFreeze = false;
-
-            //enemy_Script.freezeGameObject.gameObject.SetActive(false);          
-        }
-
-        // reset halo when choose to freeze enemy
-        /*if (_isClickedFreeze)
-        {
-            print("eiei");
-            foreach (GameObject enemy in enemies)
+            print("numFreeze" + _numFreeze);
+            if (ChooseFeature[4] == true && fixNumFreeze == _numFreeze)
             {
-                Behaviour Halo = (Behaviour)enemy.GetComponent("Halo");
-                Halo.enabled = false;
+                print("Can't Freeze Again!!");
             }
-            _isClickedFreeze = false;
-        }*/
+            else
+            {
+                //reset enemies're isfreeze
+                _isfreeze = true;
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+                foreach (GameObject enemy in enemies)
+                {
 
+                    Behaviour Halo = (Behaviour)enemy.GetComponent("Halo");
+                    Halo.enabled = false;
+                    enemy_Script = enemy.GetComponent<enemyScript>();
+                    enemy_Script.isFreeze = false;
+
+                    //enemy_Script.freezeGameObject.gameObject.SetActive(false);          
+                }
+                _numFreeze++;
+                _fixFreezetext.text = " " + (fixNumFreeze - _numFreeze);
+                // reset halo when choose to freeze enemy
+                /*if (_isClickedFreeze)
+                {
+                    print("eiei");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        Behaviour Halo = (Behaviour)enemy.GetComponent("Halo");
+                        Halo.enabled = false;
+                    }
+                    _isClickedFreeze = false;
+                }*/
+
+            }
+        }
+       
         _textAP.text = " " + actionPoint;
     }
 }

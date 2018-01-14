@@ -117,6 +117,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 cf3dd96ca5d864ad81509dfa3e5e280c Assembly-CSharp.dll:.turnManager
+957fa6df4a595f3fae96190b0b142bb5 Assembly-CSharp.dll:.MakeWaterNoise
 2fb3d87df98a7276bc7ab0dd7a28b021 Assembly-CSharp.dll:.statusTile
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MoveControl
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.testChangeUV
@@ -125,6 +126,7 @@ cf3dd96ca5d864ad81509dfa3e5e280c Assembly-CSharp.dll:.turnManager
 7d6fbb4c22d78e12c1b19772a43401dc Assembly-CSharp.dll:.AnimationScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Notification
 29f1ec32d4ba2a3993c2b2cf07583470 Assembly-CSharp.dll:.buttonTurn
+115376984c0a2c91d47e05c74dc6048f Assembly-CSharp.dll:.WaterPlanGen
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AutoRotate
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -156,3 +158,6 @@ cf4f81f16fdfba8da395387873f3a413 Assembly-CSharp.dll:.Main
 05524b8f659e7bfe5756d1335fec24ba simple-firebase-csharp.dll:SimpleFirebaseUnity.FirebaseManager
 14c81bba8918554c9a241c8e2d648b53 Assembly-CSharp.dll:.SampleScript
 7adda70bc883cacf62a7cd370cdc0d61 Assembly-CSharp.dll:.movement
+222fa6cb32d6914db8138bd809c5ff5b Assembly-CSharp.dll:TornadoBanditsStudio.LowPolyFreePack.TBS_Water
+7588d3bf435d317c557bee23912949f5 Assembly-CSharp.dll:TornadoBanditsStudio.TBS_CameraMovement
+3d14e23fc93a7371f27c550758463989 Assembly-CSharp.dll:.clickLevel

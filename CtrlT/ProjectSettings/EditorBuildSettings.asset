@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/NewScence/level/Login/Register.unity
     guid: 9ad41783caddaa24ab7c68821fb9af59
   - enabled: 1
-    path: Assets/NewScence/level/Menu.unity
+    path: Assets/NewScence/level/Login/Menu.unity
     guid: 7c1185137af192a41a7518e413922a11
   - enabled: 1
     path: Assets/NewScence/level/Login/SelectEpisode.unity

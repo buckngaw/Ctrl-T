@@ -13,6 +13,6 @@ public class userData : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        _username.text = "user: " + globalUser.thisUser.username;
+        //_username.text = "user: " + globalUser.thisUser.username;
     }
 }
