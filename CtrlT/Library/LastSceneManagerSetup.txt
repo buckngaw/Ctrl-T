@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/NewScence/level/level/lv1-0.unity
+- path: Assets/NewScence/level/Login/Menu.unity
   isLoaded: 1
   isActive: 1

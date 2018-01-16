@@ -86,13 +86,16 @@
     <Compile Include="Assets\NewScript\changeBoxColor\testChangeUV.cs" />
     <Compile Include="Assets\NewScript\GameManager\buttonManager.cs" />
     <Compile Include="Assets\NewScript\GameManager\buttonTurn.cs" />
+    <Compile Include="Assets\NewScript\GameManager\camera\swapTimeline.cs" />
+    <Compile Include="Assets\NewScript\GameManager\camera\UIManager_script.cs" />
+    <Compile Include="Assets\NewScript\GameManager\camera\zoomCamera.cs" />
     <Compile Include="Assets\NewScript\GameManager\enemyScript.cs" />
     <Compile Include="Assets\NewScript\GameManager\heroScript.cs" />
     <Compile Include="Assets\NewScript\GameManager\LoadMap.cs" />
     <Compile Include="Assets\NewScript\GameManager\Main.cs" />
     <Compile Include="Assets\NewScript\GameManager\movement.cs" />
+    <Compile Include="Assets\NewScript\GameManager\reverseBackward.cs" />
     <Compile Include="Assets\NewScript\GameManager\spotlightOnTrigger.cs" />
-    <Compile Include="Assets\NewScript\GameManager\zoomCamera.cs" />
     <Compile Include="Assets\NewScript\globalUser.cs" />
     <Compile Include="Assets\NewScript\Login\animationWater\MakeWaterNoise.cs" />
     <Compile Include="Assets\NewScript\Login\animationWater\WaterPlanGen.cs" />

@@ -56,4 +56,5 @@ MonoBehaviour:
   ParentPanel: {fileID: 0}
   Main_GameObject: {fileID: 0}
   hero_object: {fileID: 0}
+  buttonController_object: {fileID: 0}
   savedPostionButtonTurn: []

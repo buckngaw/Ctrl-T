@@ -20,4 +20,9 @@ public class LoadMap : MonoBehaviour {
         SceneManager.LoadScene(scenceName);
     }
 
+    public void exitGame()
+    {
+        Application.Quit();
+    }
+
 }

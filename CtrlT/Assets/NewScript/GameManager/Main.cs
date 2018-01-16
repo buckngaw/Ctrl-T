@@ -20,9 +20,9 @@ public class Main : MonoBehaviour {
     public RawImage endGameImageLose;
     public Image starImage;
     public Button freezeButton;
-    public Button restartGame;
+    public Button forwardButton;
     public GameObject buttonManager_GameObject;
-    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint , 3 = monCollectItem , 4 = FixFreeze
+    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint , 3 = monCollectItem , 4 = FixFreeze(select 0)
     public bool isWarp;
 
     public bool _isEndGame { get; set; }
@@ -43,7 +43,7 @@ public class Main : MonoBehaviour {
         GameObject hero = GameObject.FindGameObjectWithTag("hero");
         hero_Script = hero.GetComponent<heroScript>();
         GameObject enemy = GameObject.FindGameObjectWithTag("enemy");
-        _textAP.text = " " + actionPoint;
+        _textAP.text = "" + actionPoint;
 
         button_Script = buttonManager_GameObject.GetComponent<buttonManager>();
 
@@ -51,12 +51,19 @@ public class Main : MonoBehaviour {
         _numFreeze = 0;
         onTrigger = false;
 
-        freezeButton.gameObject.SetActive(false);
         starImage.gameObject.SetActive(false);
+
+        freezeButton.interactable = false;
+        forwardButton.interactable = false; // in EP.1
+        //change normal color of button
+        /*ColorBlock cb = freezeButton.colors;
+        cb.normalColor = Color.gray; 
+        freezeButton.colors = cb;*/
 
         if (ChooseFeature[0])
         {
-            freezeButton.gameObject.SetActive(true);
+            //freezeButton.gameObject.SetActive(true);
+            freezeButton.interactable = true;
         }
         if (ChooseFeature[1])
         {
@@ -94,13 +101,13 @@ public class Main : MonoBehaviour {
 
         endGameImageWin.gameObject.SetActive(false);
         endGameImageLose.gameObject.SetActive(false);
-        restartGame.gameObject.SetActive(false);
+        //restartGame.gameObject.SetActive(false);
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        _textAP.text = " " + actionPoint;
+        _textAP.text = "" + actionPoint;
         if (!_isEndGame)
         {
             if (!_isfreeze)
@@ -225,9 +232,9 @@ public class Main : MonoBehaviour {
                 }
                 hero_Script._heroTurn++;
                 _numReverseTurn++;
-                _fixReversetext.text = " " + (fixActionPointTurn - _numReverseTurn);
+                if (ChooseFeature[2]) { _fixReversetext.text = " " + (fixActionPointTurn - _numReverseTurn); }
                 actionPoint--;
-                _textAP.text = " " + actionPoint;
+                _textAP.text = "" + actionPoint;
                 print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
             }
         
@@ -259,7 +266,10 @@ public class Main : MonoBehaviour {
                     //enemy_Script.freezeGameObject.gameObject.SetActive(false);          
                 }
                 _numFreeze++;
-                _fixFreezetext.text = " " + (fixNumFreeze - _numFreeze);
+                if (ChooseFeature[4])
+                {
+                    _fixFreezetext.text = " " + (fixNumFreeze - _numFreeze);
+                }
                 // reset halo when choose to freeze enemy
                 /*if (_isClickedFreeze)
                 {
@@ -275,6 +285,6 @@ public class Main : MonoBehaviour {
             }
         }
        
-        _textAP.text = " " + actionPoint;
+        _textAP.text = "" + actionPoint;
     }
 }

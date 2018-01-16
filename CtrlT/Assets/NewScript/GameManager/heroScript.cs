@@ -132,7 +132,7 @@ public class heroScript : MonoBehaviour {
                     //else
                     {
                         Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-                        Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                        //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
                     }
                 }
             }else if (Main_Script.ChooseFeature[3])
@@ -149,7 +149,7 @@ public class heroScript : MonoBehaviour {
                     //else
                     {
                         Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-                        Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                       // Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
                     }
                 }
                 else if (Main_Script.actionPoint <= 0 && (transform.position.x != _winPointX && transform.position.z != _winPointZ))
@@ -159,7 +159,7 @@ public class heroScript : MonoBehaviour {
                         print("Lose");
                         Main_Script._isEndGame = true;
                         Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
-                        Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                        //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class heroScript : MonoBehaviour {
                 print("Lose");
                 Main_Script._isEndGame = true;
                 Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
-                Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+                //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
             }
         }
     }
@@ -285,7 +285,7 @@ public class heroScript : MonoBehaviour {
             print("OUCH!");
             Main_Script._isEndGame = true;
             Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
-            Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+            //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
         }
 
         //star
