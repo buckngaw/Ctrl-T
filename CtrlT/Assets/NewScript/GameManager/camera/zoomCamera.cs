@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class zoomCamera : MonoBehaviour {
 
-    public float panSpeed = 10f;
+    public float panSpeed = 2f;
     public float panBorderThickness = 10f;
     public Vector2 panLimit;
 
@@ -18,19 +18,23 @@ public class zoomCamera : MonoBehaviour {
    void Update()
     {
         Vector3 pos = transform.position;
-        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
+        //if(Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
+        if (Input.GetKey("w"))
         {
             pos.z += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
+        //if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
+        if (Input.GetKey("s") )
         {
             pos.z -= panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
+        //if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
+        if (Input.GetKey("d") )
         {
             pos.x += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
+        //if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
+        if (Input.GetKey("a"))
         {
             pos.x -= panSpeed * Time.deltaTime;
         }

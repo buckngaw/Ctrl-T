@@ -20,11 +20,13 @@ public class enemyScript : MonoBehaviour {
     public bool onTriggle { get; set; }
     public bool _isReversing { get; set; }
     public bool _isReversingAndFreezing { get; set; }
+    private bool isJump;
 
     // Use this for initialization
     void Start () {
         savedEnemyTurn = new List<int>();
         Main_Script = Main_GameObject.GetComponent<Main>();
+        isJump = false;
         //onTriggle = false;
         //savedEnemyTurn.Add(0);
     }
@@ -47,7 +49,31 @@ public class enemyScript : MonoBehaviour {
         else
         {
             int index = _enemyTurn % positions.Length;
+            if (index != 0)
+            {
+                if (positions[index].z == positions[index - 1].z && isJump == true)
+                {
+                    this.transform.eulerAngles = new Vector3(0, -90, 0);
+                    this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
+                    isJump = false;
+                    print("jump");
+                    isJump = false;
+                }else if(positions[index].x == positions[index - 1].x && isJump == true)
+                {
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
+                    isJump = false;
+                    print("jump");
+                }
+            }
+            
             transform.position = Vector3.MoveTowards(transform.position, positions[index], _movespeed * Time.deltaTime);
+            /*if (isJump)
+            {
+                this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
+                isJump = false;
+                print("jump");
+            }*/
         }
         if (Main_Script.ChooseFeature[3])
         {
@@ -78,6 +104,7 @@ public class enemyScript : MonoBehaviour {
     public void EnemyOnMove()
     {
         _enemyTurn++;
+        isJump = true;
         print("enemy: " + _enemyTurn);
         savedEnemyTurn.Add(_enemyTurn);
         //turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);

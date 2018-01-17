@@ -68,7 +68,7 @@ Material:
     - _Glossiness: 1
     - _GlossyReflections: 1
     - _InvFade: 1
-    - _Metallic: 0
+    - _Metallic: 0.97
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -79,6 +79,6 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0.34061417, g: 0.772, b: 0.61764705, a: 0.109}
-    - _EmissionColor: {r: 0, g: 0.04827571, b: 1, a: 1}
+    - _EmissionColor: {r: 0.2586505, g: 0.46900138, b: 0.6764706, a: 1}
     - _SpecColor: {r: 0.08953287, g: 0.27458534, b: 0.5294118, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
