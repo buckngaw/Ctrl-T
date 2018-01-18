@@ -24,7 +24,7 @@ public class heroScript : MonoBehaviour {
     public string Warp;
 
 
-    private Vector3 _targetPosition;
+    public Vector3 _targetPosition { get; set; }
     private Vector3 _tileCheckerPosition;
 
     private float _movespeed = 4.0f; 

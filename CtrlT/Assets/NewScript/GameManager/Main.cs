@@ -118,6 +118,7 @@ public class Main : MonoBehaviour {
                     if (hero_Script.direction[0])
                     {
                         _tileCheckerPosition = new Vector3(1, 0, 0);
+                        heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
                         actionPoint--;
                         hero_Script.direction[0] = false;
@@ -127,6 +128,7 @@ public class Main : MonoBehaviour {
                     if (hero_Script.direction[1])
                     {
                         _tileCheckerPosition = new Vector3(-1, 0, 0);
+                        heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
                         actionPoint--;
                         hero_Script.direction[1] = false;
@@ -136,6 +138,7 @@ public class Main : MonoBehaviour {
                     if (hero_Script.direction[2])
                     {
                         _tileCheckerPosition = new Vector3(0, 0, 1);
+                        heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
                         actionPoint--;
                         hero_Script.direction[2] = false;
@@ -145,6 +148,7 @@ public class Main : MonoBehaviour {
                     if (hero_Script.direction[3])
                     {
                         _tileCheckerPosition = new Vector3(0, 0, -1);
+                        heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
                         actionPoint--;
                         hero_Script.direction[3] = false;
@@ -287,4 +291,40 @@ public class Main : MonoBehaviour {
        
         _textAP.text = "" + actionPoint;
     }
+
+    private void heroJump(Vector3 positionMove)
+    {
+        GameObject hero = GameObject.Find("Hero");
+        hero.transform.GetChild(4).GetComponent<Animator>().Play("heroJump");
+        if(hero_Script._targetPosition.z == hero_Script._targetPosition.z - positionMove.z)
+        {
+            /*if(hero_Script._targetPosition.x > hero_Script._targetPosition.x - positionMove.x)
+            {
+                hero.transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                hero.transform.eulerAngles = new Vector3(0, 180, 0);
+            } */   
+        }else if (hero_Script._targetPosition.x == hero_Script._targetPosition.x - positionMove.x)
+        {
+            hero.transform.eulerAngles = new Vector3(0, -90, 0);
+        }
+    }
+
+    /*
+     * if (positions[index].z == positions[index - 1].z && isJump == true)
+                {
+                    this.transform.eulerAngles = new Vector3(0, -90, 0);
+                    this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
+                    isJump = false;
+                    print("jump");
+                    isJump = false;
+                }else if(positions[index].x == positions[index - 1].x && isJump == true)
+                {
+                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
+                    isJump = false;
+                    print("jump");
+                }*/
 }
