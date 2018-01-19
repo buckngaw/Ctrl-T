@@ -16,10 +16,10 @@ public class statusTile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        /*if (canWalk)
+        if (canWalk)
         {
             Debug.Log("isWalk");
-        }*/
+        }
 	}
 
     void OnMouseDown()

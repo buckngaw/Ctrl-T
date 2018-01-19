@@ -51,12 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fd930d4a7c7a34087df754d48c78a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionPoint: 10
+  actionPoint: 15
   countStarWin: 0
   fixActionPointTurn: 0
   fixNumFreeze: 0
   _textAP: {fileID: 0}
-  winPoint: {x: 0, y: 0, z: 4}
+  winPoint: {x: 5, y: 0, z: 2}
   _textStar: {fileID: 0}
   _textStarBack: {fileID: 0}
   _fixReversetext: {fileID: 0}
@@ -65,8 +65,8 @@ MonoBehaviour:
   endGameImageLose: {fileID: 0}
   starImage: {fileID: 0}
   freezeButton: {fileID: 0}
-  restartGame: {fileID: 0}
   forwardButton: {fileID: 0}
   buttonManager_GameObject: {fileID: 0}
+  PanelObject: {fileID: 0}
   ChooseFeature: 0000000000
   isWarp: 0

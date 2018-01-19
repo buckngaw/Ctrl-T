@@ -306,17 +306,24 @@ public class Main : MonoBehaviour {
         hero.transform.GetChild(4).GetComponent<Animator>().Play("heroJump");
         if(hero_Script._targetPosition.z == hero_Script._targetPosition.z - positionMove.z)
         {
-            /*if(hero_Script._targetPosition.x > hero_Script._targetPosition.x - positionMove.x)
+            if(hero_Script._targetPosition.x > hero_Script._targetPosition.x - positionMove.x)
             {
-                hero.transform.eulerAngles = new Vector3(0, 0, 0);
+                hero.transform.GetChild(4).eulerAngles = new Vector3(0, 90, 0);
             }
             else
             {
-                hero.transform.eulerAngles = new Vector3(0, 180, 0);
-            } */   
+                hero.transform.GetChild(4).eulerAngles = new Vector3(0, -90, 0);
+            }    
         }else if (hero_Script._targetPosition.x == hero_Script._targetPosition.x - positionMove.x)
         {
-            hero.transform.eulerAngles = new Vector3(0, -90, 0);
+            if (hero_Script._targetPosition.z > hero_Script._targetPosition.z - positionMove.z)
+            {
+                hero.transform.GetChild(4).eulerAngles = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                hero.transform.GetChild(4).eulerAngles = new Vector3(0, 180, 0);
+            }
         }
     }
 

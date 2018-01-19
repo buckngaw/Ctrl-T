@@ -200,6 +200,7 @@ public class heroScript : MonoBehaviour {
             GameObject tile = getWalkTile(tilechecker, tiles);
             if (tile)
             {
+                //ADD Tile that hero can walk
                 tilesCanWalk.Add(tile);        
             }
            
