@@ -66,6 +66,7 @@ public class heroScript : MonoBehaviour {
             if (transform.position == _targetPosition)
             {
                 heroFinishedMove = true; // transform.position == _targetPosition
+                Main_Script.actionPoint--;
                 heroOnMove = false;
                 _heroTurn++;
                 print("heroTurn" + _heroTurn);

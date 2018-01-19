@@ -28,7 +28,7 @@ public class Dynamicbtn : MonoBehaviour
     void Start()
     {
         turnManager_Script = turnManager_GameObject.GetComponent<turnManager>();
-        heroController_Script = heroController_GameObject.GetComponent<heroController>();
+        //heroController_Script = heroController_GameObject.GetComponent<heroController>();
     }
 
     void Update()

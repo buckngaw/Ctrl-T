@@ -22,13 +22,17 @@ public class Main : MonoBehaviour {
     public Button freezeButton;
     public Button forwardButton;
     public GameObject buttonManager_GameObject;
-    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixActionPoint , 3 = monCollectItem , 4 = FixFreeze(select 0)
+    public GameObject PanelObject;
+    public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixReverse , 3 = monCollectItem , 4 = FixFreeze(select 0)
     public bool isWarp;
+
+
 
     public bool _isEndGame { get; set; }
     public bool _isfreeze { get; set; }
     public bool _isClickedFreeze { get; set; }
     public bool onTrigger { get; set; }
+    public bool _isFixReverse { get; set; }
 
     private heroScript hero_Script;
     private enemyScript enemy_Script;
@@ -50,6 +54,7 @@ public class Main : MonoBehaviour {
         _numReverseTurn = 0;
         _numFreeze = 0;
         onTrigger = false;
+        _isFixReverse = false;
 
         starImage.gameObject.SetActive(false);
 
@@ -120,7 +125,6 @@ public class Main : MonoBehaviour {
                         _tileCheckerPosition = new Vector3(1, 0, 0);
                         heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
-                        actionPoint--;
                         hero_Script.direction[0] = false;
                         button_Script.createButton(0, null);
                     }
@@ -130,7 +134,7 @@ public class Main : MonoBehaviour {
                         _tileCheckerPosition = new Vector3(-1, 0, 0);
                         heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
-                        actionPoint--;
+                        //actionPoint--;
                         hero_Script.direction[1] = false;
                         button_Script.createButton(0, null);
                     }
@@ -140,7 +144,7 @@ public class Main : MonoBehaviour {
                         _tileCheckerPosition = new Vector3(0, 0, 1);
                         heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
-                        actionPoint--;
+                        //actionPoint--;
                         hero_Script.direction[2] = false;
                         button_Script.createButton(0, null);
                     }
@@ -150,7 +154,7 @@ public class Main : MonoBehaviour {
                         _tileCheckerPosition = new Vector3(0, 0, -1);
                         heroJump(_tileCheckerPosition);
                         hero_Script.HeroOnMove(_tileCheckerPosition);
-                        actionPoint--;
+                        //actionPoint--;
                         hero_Script.direction[3] = false;
                         button_Script.createButton(0, null);
                     }
@@ -193,6 +197,10 @@ public class Main : MonoBehaviour {
                     }
                 }
                 onTrigger = win;
+            }
+            if (ChooseFeature[2] == true && fixActionPointTurn == _numReverseTurn)
+            {
+                _isFixReverse = true;
             }
         }
     }

@@ -105,6 +105,7 @@
     <Compile Include="Assets\NewScript\Login\Notification.cs" />
     <Compile Include="Assets\NewScript\Login\userData.cs" />
     <Compile Include="Assets\NewScript\Login\usersData.cs" />
+    <Compile Include="Assets\reversePanel.cs" />
     <Compile Include="Assets\Script\Dynamicbtn.cs" />
     <Compile Include="Assets\Script\EndScript.cs" />
     <Compile Include="Assets\Script\heroController.cs" />
