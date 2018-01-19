@@ -303,7 +303,7 @@ public class Main : MonoBehaviour {
     private void heroJump(Vector3 positionMove)
     {
         GameObject hero = GameObject.Find("Hero");
-        hero.transform.GetChild(4).GetComponent<Animator>().Play("heroJump");
+        hero.transform.GetChild(4).GetComponent<Animator>().Play("chickyJump");
         if(hero_Script._targetPosition.z == hero_Script._targetPosition.z - positionMove.z)
         {
             if(hero_Script._targetPosition.x > hero_Script._targetPosition.x - positionMove.x)

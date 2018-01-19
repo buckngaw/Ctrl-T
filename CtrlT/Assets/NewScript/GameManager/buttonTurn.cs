@@ -19,8 +19,8 @@ public class buttonTurn : MonoBehaviour
         Main_GameObject = GameObject.Find("Main");
         main_Script = Main_GameObject.GetComponent<Main>();
 
-        camare_object = GameObject.FindGameObjectWithTag("MainCamera");
-        camera_animator = camare_object.GetComponent<Animator>();
+        /*camare_object = GameObject.FindGameObjectWithTag("MainCamera");
+        camera_animator = camare_object.GetComponent<Animator>();*/
 
     }
 
