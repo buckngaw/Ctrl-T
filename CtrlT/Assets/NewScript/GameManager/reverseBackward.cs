@@ -8,7 +8,8 @@ public class reverseBackward : MonoBehaviour {
     public bool isForward { get; set; }
 
     public void backward() {
-       isBackward = true;
+        
+        isBackward = true;
     }
     public void forward()
     {

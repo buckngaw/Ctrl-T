@@ -26,8 +26,6 @@ public class Main : MonoBehaviour {
     public bool[] ChooseFeature; // 0 = freeze , 1 = star , 2 = FixReverse , 3 = monCollectItem , 4 = FixFreeze(select 0)
     public bool isWarp;
 
-
-
     public bool _isEndGame { get; set; }
     public bool _isfreeze { get; set; }
     public bool _isClickedFreeze { get; set; }

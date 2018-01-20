@@ -90,11 +90,13 @@
     <Compile Include="Assets\NewScript\GameManager\camera\UIManager_script.cs" />
     <Compile Include="Assets\NewScript\GameManager\camera\zoomCamera.cs" />
     <Compile Include="Assets\NewScript\GameManager\enemyScript.cs" />
+    <Compile Include="Assets\NewScript\GameManager\FadeManager.cs" />
     <Compile Include="Assets\NewScript\GameManager\heroScript.cs" />
     <Compile Include="Assets\NewScript\GameManager\LoadMap.cs" />
     <Compile Include="Assets\NewScript\GameManager\Main.cs" />
     <Compile Include="Assets\NewScript\GameManager\movement.cs" />
     <Compile Include="Assets\NewScript\GameManager\reverseBackward.cs" />
+    <Compile Include="Assets\NewScript\GameManager\reversePanel.cs" />
     <Compile Include="Assets\NewScript\GameManager\spotlightOnTrigger.cs" />
     <Compile Include="Assets\NewScript\globalUser.cs" />
     <Compile Include="Assets\NewScript\Login\animationWater\MakeWaterNoise.cs" />
@@ -105,7 +107,6 @@
     <Compile Include="Assets\NewScript\Login\Notification.cs" />
     <Compile Include="Assets\NewScript\Login\userData.cs" />
     <Compile Include="Assets\NewScript\Login\usersData.cs" />
-    <Compile Include="Assets\reversePanel.cs" />
     <Compile Include="Assets\Script\Dynamicbtn.cs" />
     <Compile Include="Assets\Script\EndScript.cs" />
     <Compile Include="Assets\Script\heroController.cs" />
@@ -121,6 +122,10 @@
   <ItemGroup>
     <None Include="Assets\SimpleFirebaseUnity\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\SimpleFirebaseUnity\Plugins\simple-firebase-csharp.xml" />
+    <None Include="Assets\Toon Forest free set\Read me(En.Jp).txt" />
+    <None Include="Assets\Toon Forest free set\sqript\custom.shader" />
+    <None Include="Assets\Toon Forest free set\sqript\custom2.shader" />
+    <None Include="Assets\Toon Forest free set\sqript\custom3.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
