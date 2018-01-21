@@ -20,7 +20,10 @@ public class enemyScript : MonoBehaviour {
     public bool onTriggle { get; set; }
     public bool _isReversing { get; set; }
     public bool _isReversingAndFreezing { get; set; }
+    public bool _isChangePosY { get; set; }
+    private Vector3 tempPosition;
     private bool isJump;
+
 
     // Use this for initialization
     void Start () {
@@ -37,7 +40,15 @@ public class enemyScript : MonoBehaviour {
         if (_isReversing)
         {
             int index = _enemyTurn % positions.Length;
-            transform.position = positions[index];
+            //Set enemy position y = 1.2
+            tempPosition.x = positions[index].x;
+            tempPosition.z = positions[index].z;
+            tempPosition.y = 8.0f;
+            transform.position = tempPosition;
+            if (_isChangePosY)
+            {
+                transform.position = positions[index];
+            }
            // print("transform enemy: " + transform.position);
             _isReversing = false;
         }

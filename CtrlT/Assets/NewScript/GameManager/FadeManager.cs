@@ -7,7 +7,6 @@ public class FadeManager : MonoBehaviour {
 
     public static FadeManager Instance {set; get;}
     public Image fadeImage;
-    public bool isClick { get; set; }
 
     private bool isInTransition;
     private float transition;
@@ -29,12 +28,6 @@ public class FadeManager : MonoBehaviour {
 
     private void Update()
     {
-        if (isClick)
-        {
-            Fade(true, 1.25f);
-        }
-        //Fade(false, 3.0f);
-        
 
         if (!isInTransition)
             return;

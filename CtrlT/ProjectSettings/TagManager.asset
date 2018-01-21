@@ -11,6 +11,7 @@ TagManager:
   - hero
   - enemy
   - collectCystal
+  - fadeManager
   layers:
   - Default
   - TransparentFX

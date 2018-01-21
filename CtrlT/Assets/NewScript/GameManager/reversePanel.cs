@@ -31,6 +31,7 @@ public class reversePanel : MonoBehaviour {
         {
             PanelObject.gameObject.SetActive(true);
             Swap.gameObject.SetActive(true);
+            Main_Script._isReverse = true;
         }
         else if(Main_Script._isFixReverse)
         {

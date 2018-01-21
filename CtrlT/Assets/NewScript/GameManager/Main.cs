@@ -31,6 +31,8 @@ public class Main : MonoBehaviour {
     public bool _isClickedFreeze { get; set; }
     public bool onTrigger { get; set; }
     public bool _isFixReverse { get; set; }
+    public bool _isReverse { get; set; } // Use to can't click tile
+    public bool _isReverseFinish { get; set; } // Use when fading and change enemy pos.y
 
     private heroScript hero_Script;
     private enemyScript enemy_Script;
@@ -53,6 +55,7 @@ public class Main : MonoBehaviour {
         _numFreeze = 0;
         onTrigger = false;
         _isFixReverse = false;
+        _isReverse = false;
 
         starImage.gameObject.SetActive(false);
 
@@ -213,6 +216,7 @@ public class Main : MonoBehaviour {
             }
             else
             {
+                //_isReverse = true;
                 button_Script.createButton(1, clickedButton); // 1 = new line , get btn that clicked
                 _reverseTurn = reverseTurn;
                 print("reverseTurn: " + _reverseTurn);
@@ -230,9 +234,15 @@ public class Main : MonoBehaviour {
                     else
                     {
                         enemy_Script._isReversing = true;
-                        enemy_Script._enemyTurn = enemy_Script.savedEnemyTurn[_reverseTurn];
+                        enemy_Script._enemyTurn = enemy_Script.savedEnemyTurn[_reverseTurn]; // Location = turn that reverse
+                        if (_isReverseFinish)
+                        {
+                            //enemy change pos.y 
+                            enemy_Script._isChangePosY = true;
+                        }
                         print("savedEnemyTurn: " + enemy_Script._enemyTurn);
                         enemy_Script.savedEnemyTurn.Add(enemy_Script._enemyTurn);
+                        //_isReverse = false;
                         //enemy_Script._enemyTurn++;
                     }
                     /*if (ChooseFeature[3] && !enemy_Script.onTriggle)
