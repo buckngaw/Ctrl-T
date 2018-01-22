@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class UIManager_script : MonoBehaviour {
 
+    GameObject Main;
 
     public void DisableBoolAnimation(Animator anim)
     {
+        Main = GameObject.Find("Main");
+        Main.GetComponent<Main>()._isReverse = false;
         anim.SetBool("isDisplayed", false);
     }
 

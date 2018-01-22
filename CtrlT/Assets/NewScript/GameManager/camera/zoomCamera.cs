@@ -8,9 +8,9 @@ public class zoomCamera : MonoBehaviour {
     public float panBorderThickness = 10f;
     public Vector2 panLimit;
 
-    public float scrollSpeed = 20f;
+   /* public float scrollSpeed = 20f;
     public float minY ;
-    public float maxY ;
+    public float maxY ;*/
 
     private float sensitivity = 10f;
 
@@ -41,10 +41,10 @@ public class zoomCamera : MonoBehaviour {
 
         /*float scroll = Input.GetAxis("Mouse ScrollWheel");
         pos.y -= scroll * scrollSpeed * 100f * Time.deltaTime;*/
-        float fov = Camera.main.fieldOfView;
+        /*float fov = Camera.main.fieldOfView;
         fov += Input.GetAxis("Mouse ScrollWheel") * sensitivity;
         fov = Mathf.Clamp(fov, minY, maxY);
-        Camera.main.fieldOfView = fov;
+        Camera.main.fieldOfView = fov;*/
 
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
        // pos.y = Mathf.Clamp(pos.y, minY, maxY);   

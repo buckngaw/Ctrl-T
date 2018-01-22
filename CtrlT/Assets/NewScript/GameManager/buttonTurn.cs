@@ -34,14 +34,14 @@ public class buttonTurn : MonoBehaviour
 
     public void buttonOnClick()
     {
-        //Fade in
-        fadeManager.GetComponent<FadeManager>().Fade(true, 0.5f);
         //Create reverse
         main_Script.reverseTurn(turn, transform.GetComponent<Button>());
+        //Fade in
+        fadeManager.GetComponent<FadeManager>().Fade(true, 1.5f);
         //Wait for close fade
-        StartCoroutine(WaitForCloseFade(0.5f));
+        StartCoroutine(WaitForCloseFade(0.3f));
         //Wait for change enemy pos.y
-        StartCoroutine(WaitEnemyChangePos(2.0f));
+        StartCoroutine(WaitEnemyChangePos(1.0f));
         main_Script._isReverse = false;
     }
 
@@ -55,7 +55,7 @@ public class buttonTurn : MonoBehaviour
         Swap = GameObject.Find("Swap");
         Swap.SetActive(false);
         //Fade out
-        fadeManager.GetComponent<FadeManager>().Fade(false, 0.5f);
+        fadeManager.GetComponent<FadeManager>().Fade(false, 1.5f);
     }
 
     //Change Y position(enemy)

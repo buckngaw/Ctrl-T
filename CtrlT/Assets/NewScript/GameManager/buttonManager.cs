@@ -50,6 +50,7 @@ public class buttonManager : MonoBehaviour {
         goButton.GetComponent<buttonTurn>().turn = hero_Script._heroTurn;     //set parameter in PrefabButton.cs
         goButton.transform.SetParent(ParentPanel, false);
         goButton.GetComponentInChildren<Text>().text = (hero_Script._heroTurn + 1).ToString();
+        //goButton.interactable = false;
         goButton.transform.localScale = new Vector3(1, 1, 1);
         //allButton.Add(goButton);
         Vector3 defaultPosition = new Vector3(-209, -77, 0);
@@ -82,6 +83,7 @@ public class buttonManager : MonoBehaviour {
         RectTransform rectTransform = goButton.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = pos;
         savedPostionButtonTurn.Add(pos.x);
+
 
     }
 

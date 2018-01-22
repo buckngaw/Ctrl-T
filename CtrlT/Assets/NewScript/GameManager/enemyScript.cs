@@ -54,8 +54,9 @@ public class enemyScript : MonoBehaviour {
         }
         else if (Main_Script._isfreeze)
          {
-            freezeGameObject.gameObject.SetActive(true);
-            // print("freeze");
+            //Animation Freeze
+            freezeGameObject.gameObject.SetActive(false);
+            print("choose to freeze");
          }
         else
         {
@@ -125,9 +126,10 @@ public class enemyScript : MonoBehaviour {
     {
         if (Main_Script._isfreeze)
         {
-            print("freeze");
+            print("freezed");
             isFreeze = true;
             Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
+            freezeGameObject.gameObject.SetActive(true);
             Halo.enabled = true;
             Main_Script.actionPoint--;
             Main_Script._isClickedFreeze = true;

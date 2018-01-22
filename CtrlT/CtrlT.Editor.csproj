@@ -129,8 +129,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\TornadoBanditsStudio\Editor\TBS_EditorInitializer.cs" />
-    <Compile Include="Assets\TornadoBanditsStudio\Editor\TBS_PresentationWindow.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Editor\EffectControllerInspector.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Editor\EffectToolBar.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Editor\RenderEffectInspector.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Editor\ShaderCustomEditor\ShaderMaterialsEditor.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Editor\XUIUtils.cs" />
+    <Compile Include="Assets\download\TornadoBanditsStudio\Editor\TBS_EditorInitializer.cs" />
+    <Compile Include="Assets\download\TornadoBanditsStudio\Editor\TBS_PresentationWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SimpleFirebaseUnity\Plugins\Android\AndroidManifest.xml" />
@@ -139,6 +144,14 @@
     <None Include="Assets\Toon Forest free set\sqript\custom.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom2.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom3.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Additive.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\READ ME.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

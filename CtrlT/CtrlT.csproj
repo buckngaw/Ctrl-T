@@ -82,6 +82,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\download\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
+    <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
+    <Compile Include="Assets\download\TornadoBanditsStudio\Low Poly Free Pack\Scripts\TBS_CameraMovement.cs" />
+    <Compile Include="Assets\download\TornadoBanditsStudio\Low Poly Free Pack\Water\TBS_Water.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\statusTile.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\testChangeUV.cs" />
     <Compile Include="Assets\NewScript\GameManager\buttonManager.cs" />
@@ -116,8 +124,6 @@
     <Compile Include="Assets\SimpleFirebaseUnity\Sample\AutoRotate.cs" />
     <Compile Include="Assets\SimpleFirebaseUnity\Sample\MoveControl.cs" />
     <Compile Include="Assets\SimpleFirebaseUnity\Sample\SampleScript.cs" />
-    <Compile Include="Assets\TornadoBanditsStudio\Low Poly Free Pack\Scripts\TBS_CameraMovement.cs" />
-    <Compile Include="Assets\TornadoBanditsStudio\Low Poly Free Pack\Water\TBS_Water.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SimpleFirebaseUnity\Plugins\Android\AndroidManifest.xml" />
@@ -126,6 +132,14 @@
     <None Include="Assets\Toon Forest free set\sqript\custom.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom2.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom3.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Additive.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
+    <None Include="Assets\download\Particlecollection_Free samples\READ ME.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
