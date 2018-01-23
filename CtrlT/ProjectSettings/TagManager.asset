@@ -12,6 +12,7 @@ TagManager:
   - enemy
   - collectCystal
   - fadeManager
+  - reverseButton
   layers:
   - Default
   - TransparentFX

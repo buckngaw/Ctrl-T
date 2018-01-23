@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114416146137136082}
   m_Layer: 5
   m_Name: ButtonTurnUI
-  m_TagString: Untagged
+  m_TagString: reverseButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,8 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Main_GameObject: {fileID: 1370742488526112, guid: 1d2849dad497d7d4e86ae13262c47cbf,
-    type: 2}
-  fadeManageCanvas: {fileID: 223542192565296492, guid: 541cd80a842a5034ca31a6df9e930cb5,
     type: 2}
 --- !u!114 &114439609558634126
 MonoBehaviour:

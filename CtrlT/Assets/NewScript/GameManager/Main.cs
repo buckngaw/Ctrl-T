@@ -31,8 +31,10 @@ public class Main : MonoBehaviour {
     public bool _isClickedFreeze { get; set; }
     public bool onTrigger { get; set; }
     public bool _isFixReverse { get; set; }
+    public bool _isFixPause { get; set; }
     public bool _isReverse { get; set; } // Use to can't click tile
     public bool _isReverseFinish { get; set; } // Use when fading and change enemy pos.y
+    public bool _cantPause { get; set; }
 
     private heroScript hero_Script;
     private enemyScript enemy_Script;
@@ -60,7 +62,6 @@ public class Main : MonoBehaviour {
         starImage.gameObject.SetActive(false);
 
         freezeButton.interactable = false;
-        forwardButton.interactable = false; // in EP.1
         //change normal color of button
         /*ColorBlock cb = freezeButton.colors;
         cb.normalColor = Color.gray; 
@@ -79,11 +80,11 @@ public class Main : MonoBehaviour {
         if (ChooseFeature[2])
         {
             print("fixActionPointTurn" + fixActionPointTurn);
-            _fixReversetext.text = " " + fixActionPointTurn;
+            _fixReversetext.text = "" + fixActionPointTurn;
         }
         if (ChooseFeature[4])
         {
-            _fixFreezetext.text = " " + fixNumFreeze;
+            _fixFreezetext.text = "" + fixNumFreeze;
         }
         /*if (typeHeroSkill == 1) // normal mode
         {
@@ -269,6 +270,7 @@ public class Main : MonoBehaviour {
             if (ChooseFeature[4] == true && fixNumFreeze == _numFreeze)
             {
                 print("Can't Freeze Again!!");
+                _isFixPause = true;
             }
             else
             {
@@ -288,7 +290,7 @@ public class Main : MonoBehaviour {
                 _numFreeze++;
                 if (ChooseFeature[4])
                 {
-                    _fixFreezetext.text = " " + (fixNumFreeze - _numFreeze);
+                    _fixFreezetext.text = "" + (fixNumFreeze - _numFreeze);
                 }
                 // reset halo when choose to freeze enemy
                 /*if (_isClickedFreeze)

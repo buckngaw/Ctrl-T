@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b7a59ee6338de498c8b2b6336721ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenceName: lv1-5
+  scenceName: lv1-6
 --- !u!65 &144793536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1450,9 +1450,6 @@ MonoBehaviour:
   panSpeed: 20
   panBorderThickness: 10
   panLimit: {x: 5, y: 5}
-  scrollSpeed: 20
-  minY: 50
-  maxY: 70
 --- !u!1 &854392693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,8 +2017,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 343, y: 170}
-  m_SizeDelta: {x: 65, y: 62}
+  m_AnchoredPosition: {x: 343, y: 169.5}
+  m_SizeDelta: {x: 65, y: 61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995650210
 MonoBehaviour:
@@ -2094,7 +2091,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 25d7d6b79c8c3ab4eac5e82d0c1dbfd8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0f93aa174289f84d868d3918e333f02, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2478,7 +2475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b7a59ee6338de498c8b2b6336721ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenceName: lv1-6
+  scenceName: lv1-8
 --- !u!65 &1277537078
 BoxCollider:
   m_ObjectHideFlags: 0

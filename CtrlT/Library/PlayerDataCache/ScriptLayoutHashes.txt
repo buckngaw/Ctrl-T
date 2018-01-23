@@ -1,7 +1,8 @@
 WindowsStandalone
 8910d642187fdd67252cdb8d1652f373 Assembly-CSharp.dll:.turnPosition
 094f1b927ac8ff0595be88b3e0321759 Assembly-CSharp.dll:.heroController
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.zoomCamera
+4f0bb8c233a8c2cc6d7eeb3be887d66a Assembly-CSharp.dll:.zoomCamera
+5ce6b488b64ab838d2116ef44243a128 Assembly-CSharp.dll:.reversePanel
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cac917711d0e84d412d48737b6fc9ae7 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -117,9 +118,12 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UIManager_script
 cf3dd96ca5d864ad81509dfa3e5e280c Assembly-CSharp.dll:.turnManager
 957fa6df4a595f3fae96190b0b142bb5 Assembly-CSharp.dll:.MakeWaterNoise
-2fb3d87df98a7276bc7ab0dd7a28b021 Assembly-CSharp.dll:.statusTile
+f887d84abb635051c27185f4c77c9f97 Assembly-CSharp.dll:.statusTile
+543ce3c182d961761184fd39ea898f29 Assembly-CSharp.dll:.EffectDemo
+f70c9f2228e3854af90b91db03cfbaec Assembly-CSharp.dll:.FadeManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MoveControl
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.testChangeUV
 13690089459feaa703200174f51314eb Assembly-CSharp.dll:.firebaseServiceForLogin
@@ -130,6 +134,7 @@ cf3dd96ca5d864ad81509dfa3e5e280c Assembly-CSharp.dll:.turnManager
 29f1ec32d4ba2a3993c2b2cf07583470 Assembly-CSharp.dll:.buttonTurn
 115376984c0a2c91d47e05c74dc6048f Assembly-CSharp.dll:.WaterPlanGen
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AutoRotate
+fdfaee1b34d01bc0c3ad3999cf0a5646 Assembly-CSharp.dll:.CameraTarget
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -144,6 +149,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+e7ec17895ab32b61ba574a2677295077 Assembly-CSharp.dll:.EffectController
 c6c8b635b306160b78f20a9e8b053fe4 Assembly-CSharp.dll:.firebaseServiceForRegister
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 5f2ad81aa8994e8fbe25d1e57afe6773 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -154,9 +160,11 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
-4d359a4188fa401d63c8e9f68cee7b67 Assembly-CSharp.dll:.Main
+c161a08714a6b83c23adf4b3bbe4e9b4 Assembly-CSharp.dll:.Main
 3f1077f8b8099ff0ce44489e4e5688b4 Assembly-CSharp.dll:.userData
 0d5c35e8eeffa3f5fece01e3ede82521 Assembly-CSharp.dll:.EndScript
+cd23b5338ca43f651bf8d9d5be7a0f5b Assembly-CSharp.dll:.swapTimeline
+569e16817b3d0a3daadbe6c3d97d7996 Assembly-CSharp.dll:.RenderEffect
 3d14e23fc93a7371f27c550758463989 Assembly-CSharp.dll:.clickLevel
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LoadMap
 05524b8f659e7bfe5756d1335fec24ba simple-firebase-csharp.dll:SimpleFirebaseUnity.FirebaseManager
