@@ -11,6 +11,7 @@ public class enemyScript : MonoBehaviour {
     public List<int> savedEnemyTurn { get; set; }
 
     public GameObject freezeGameObject;
+    public ParticleSystem pause;
     public Vector3[] positions;
     public Vector3 collectPosition;
     public bool isFreeze { get; set; }
@@ -30,6 +31,7 @@ public class enemyScript : MonoBehaviour {
         savedEnemyTurn = new List<int>();
         Main_Script = Main_GameObject.GetComponent<Main>();
         isJump = false;
+        pause.Stop();
         //onTriggle = false;
         //savedEnemyTurn.Add(0);
     }
@@ -65,14 +67,27 @@ public class enemyScript : MonoBehaviour {
             {
                 if (positions[index].z == positions[index - 1].z && isJump == true)
                 {
-                    this.transform.eulerAngles = new Vector3(0, -90, 0);
+                    if(positions[index].x < positions[index - 1].x)
+                    {
+                        this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else
+                    {
+                        this.transform.eulerAngles = new Vector3(0, -180, 0);
+                    }
                     this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
                     isJump = false;
                     //print("jump");
-                    isJump = false;
                 }else if(positions[index].x == positions[index - 1].x && isJump == true)
                 {
-                    this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    if(positions[index].z > positions[index - 1].z)
+                    {
+                        this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                    else if (positions[index].z < positions[index - 1].z)
+                    {
+                        this.transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
                     this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
                     isJump = false;
                     //print("jump");
@@ -80,13 +95,8 @@ public class enemyScript : MonoBehaviour {
             }
             
             transform.position = Vector3.MoveTowards(transform.position, positions[index], _movespeed * Time.deltaTime);
-            /*if (isJump)
-            {
-                this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
-                isJump = false;
-                print("jump");
-            }*/
         }
+
         if (Main_Script.ChooseFeature[3])
         {
             if(transform.position == collectPosition)
@@ -109,9 +119,9 @@ public class enemyScript : MonoBehaviour {
                 Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
                 Halo.enabled = false;
             }*/
-        }
-
     }
+
+}
 
     public void EnemyOnMove()
     {
@@ -127,12 +137,13 @@ public class enemyScript : MonoBehaviour {
         if (Main_Script._isfreeze)
         {
             print("freezed");
+            //ANIMATION
+            pause.Play();
             isFreeze = true;
             Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
             freezeGameObject.gameObject.SetActive(true);
             Halo.enabled = true;
             Main_Script.actionPoint--;
-            Main_Script._isClickedFreeze = true;
             Main_Script._isfreeze = false;
         } 
     }

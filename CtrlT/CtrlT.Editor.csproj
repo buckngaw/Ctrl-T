@@ -142,6 +142,8 @@
     <None Include="Assets\Toon Forest free set\sqript\custom.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom2.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom3.shader" />
+    <None Include="Assets\download\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
+    <None Include="Assets\download\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Unlit.shader" />
     <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
     <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
     <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />

@@ -28,7 +28,6 @@ public class Main : MonoBehaviour {
 
     public bool _isEndGame { get; set; }
     public bool _isfreeze { get; set; }
-    public bool _isClickedFreeze { get; set; }
     public bool onTrigger { get; set; }
     public bool _isFixReverse { get; set; }
     public bool _isFixPause { get; set; }
