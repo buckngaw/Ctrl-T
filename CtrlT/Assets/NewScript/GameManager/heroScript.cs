@@ -69,7 +69,7 @@ public class heroScript : MonoBehaviour {
                 Main_Script.actionPoint--;
                 heroOnMove = false;
                 _heroTurn++;
-                print("heroTurn" + _heroTurn);
+                //print("heroTurn" + _heroTurn);
                 //turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
             }
         }

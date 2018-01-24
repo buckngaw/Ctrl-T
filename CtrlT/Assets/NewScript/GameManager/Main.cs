@@ -220,7 +220,7 @@ public class Main : MonoBehaviour {
                 //_isReverse = true;
                 button_Script.createButton(1, clickedButton); // 1 = new line , get btn that clicked
                 _reverseTurn = reverseTurn;
-                print("reverseTurn: " + _reverseTurn);
+                //print("reverseTurn: " + _reverseTurn);
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
                 foreach (GameObject enemy in enemies)
                 {
@@ -241,7 +241,7 @@ public class Main : MonoBehaviour {
                             //enemy change pos.y 
                             enemy_Script._isChangePosY = true;
                         }
-                        print("savedEnemyTurn: " + enemy_Script._enemyTurn);
+                        //print("savedEnemyTurn: " + enemy_Script._enemyTurn);
                         enemy_Script.savedEnemyTurn.Add(enemy_Script._enemyTurn);
                         //_isReverse = false;
                         //enemy_Script._enemyTurn++;
@@ -256,7 +256,7 @@ public class Main : MonoBehaviour {
                 if (ChooseFeature[2]) { _fixReversetext.text = " " + (fixActionPointTurn - _numReverseTurn); }
                 actionPoint--;
                 _textAP.text = "" + actionPoint;
-                print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
+                //print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
             }
         
         }

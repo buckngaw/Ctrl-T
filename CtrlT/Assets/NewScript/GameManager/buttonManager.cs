@@ -16,10 +16,6 @@ public class buttonManager : MonoBehaviour {
     public GameObject hero_object;
     private heroScript hero_Script;
 
-    //reverseBackward
-    //public GameObject isBackward_GameObject;
-    //private reverseBackward isBackward_Script;
-
     public List<float> savedPostionButtonTurn;
     private bool isReversing;
 
@@ -31,6 +27,7 @@ public class buttonManager : MonoBehaviour {
     //private int _turn;
     private int _heroTurn;
     private bool _isReverse;
+    private bool _setLineZero;
     //private int _axisX;
     //private int _axisY;
 
@@ -38,53 +35,63 @@ public class buttonManager : MonoBehaviour {
     void Start () {
         Main_Script = Main_GameObject.GetComponent<Main>();
         hero_Script = hero_object.GetComponent<heroScript>();
-        //isBackward_Script = isBackward_GameObject.GetComponent<reverseBackward>();
-        //buttonController_script = buttonController_object.GetComponent<reverseBackward>();
     }
 
     // Update is called once per frame
     void Update() {
-        if (isReversing && !isForkward)
+        //REVERSING
+        if (isReversing)
         {
             if (isBackward)
             {
-                _isReverse = true;
-                setInteractableBtn(_isReverse);
+                print("isbacwarding");
+                setTimelineBW(isBackward);
+                isBackward = false;
             }
-            /*else if (isForkward)
+            if (isForkward)
             {
-                _isReverse = false;
-                print("isForward");
-                setInteractableBtn(_isReverse);
-            }*/
+                print("isforwarding");
+                setTimelineFW(isForkward);
+                isForkward = false;
+            }
             isReversing = false;
         }
-        else if (isBackward || isForkward || !isReversing)
+        //DON'T REVERSING
+        else if (!isReversing)
         {
+            //LINE 0
             if(_line == 0)
-            {
+            {  
                 if (isBackward)
                 {
-                    GameObject[] reverseButtons = GameObject.FindGameObjectsWithTag("reverseButton");
-                    foreach (GameObject reverseButton in reverseButtons)
-                    {
-                        reverseButton.GetComponent<Button>().interactable = true;
-                    }
+                    print("line0 BW");
+                    _setLineZero = true;
+                    setLineZero(_setLineZero);
                     isBackward = false;
                 }
-                else if(isForkward)
+                if (isForkward)
                 {
-                    GameObject[] reverseButtons = GameObject.FindGameObjectsWithTag("reverseButton");
-                    foreach (GameObject reverseButton in reverseButtons)
-                    {
-                        reverseButton.GetComponent<Button>().interactable = false;
-                    }
+                    print("line0 FW");
+                    _setLineZero = false;
+                    setLineZero(_setLineZero);
                     isForkward = false;
                 }
             }
+            //LINE > 0
             else if(_line > 0)
             {
-                setRealtimeBtn();
+                if (isBackward)
+                {
+                    print("line > 0 BW");
+                    setRealtimeBtnBW();
+                    isBackward = false;
+                }
+                if (isForkward)
+                {
+                    print("line > 0 FW");
+                    setRealtimeBtnFW();
+                    isForkward = false;
+                }
             } 
         }
     }
@@ -133,55 +140,69 @@ public class buttonManager : MonoBehaviour {
 
     }
 
-    private void setInteractableBtn(bool isBackward)
+
+    //Set timeline for backward and reward (reversing)
+    private void setTimelineFW(bool isbackward)
     {
         GameObject[] reverseButtons = GameObject.FindGameObjectsWithTag("reverseButton");
         foreach (GameObject reverseButton in reverseButtons)
         {
             reverseButton.GetComponent<Button>().interactable = true;
-            if (isBackward)
+            if (reverseButton.transform.localPosition.x > savedPostionButtonTurn[hero_Script._heroTurn - 1])
             {
-                if (reverseButton.transform.localPosition.x > savedPostionButtonTurn[hero_Script._heroTurn - 1])
-                {
-                    reverseButton.GetComponent<Button>().interactable = false;
-                }
+                reverseButton.GetComponent<Button>().interactable = false;
             }
-            else if(!isBackward)
-            {
-                Debug.Log("FW Position: " + reverseButton.transform.localPosition.x);
-                if (reverseButton.transform.localPosition.x < savedPostionButtonTurn[hero_Script._heroTurn - 1])
-                {
-                    print("forward");
-                    reverseButton.GetComponent<Button>().interactable = false;
-                }
-            }
-           
         }
     }
 
-    private void setRealtimeBtn()
+    private void setTimelineBW(bool isforward)
     {
         GameObject[] reverseButtons = GameObject.FindGameObjectsWithTag("reverseButton");
         foreach (GameObject reverseButton in reverseButtons)
         {
             reverseButton.GetComponent<Button>().interactable = true;
-            if (isBackward)
+            if (reverseButton.transform.localPosition.x < savedPostionButtonTurn[hero_Script._heroTurn - 1])
             {
-                if (reverseButton.transform.localPosition.x > savedPostionButtonTurn[hero_Script._heroTurn - 1])
-                {
-                    reverseButton.GetComponent<Button>().interactable = false;
-                }
+                reverseButton.GetComponent<Button>().interactable = false;
             }
-            if (isForkward)
+        }
+    }
+
+    //Set timeline when don't reverse
+    private void setRealtimeBtnBW()
+    {
+        GameObject[] reverseButtons = GameObject.FindGameObjectsWithTag("reverseButton");
+        foreach (GameObject reverseButton in reverseButtons)
+        {
+            reverseButton.GetComponent<Button>().interactable = true;
+            if (reverseButton.transform.localPosition.x > savedPostionButtonTurn[hero_Script._heroTurn - 1])
             {
-                if (reverseButton.transform.localPosition.x < savedPostionButtonTurn[hero_Script._heroTurn - 1])
-                {
-                    reverseButton.GetComponent<Button>().interactable = false;
-                }
+                reverseButton.GetComponent<Button>().interactable = false;
             }
-           
+        }
+    }
+
+    private void setRealtimeBtnFW()
+    {
+        GameObject[] reverseButtons = GameObject.FindGameObjectsWithTag("reverseButton");
+        foreach (GameObject reverseButton in reverseButtons)
+        {
+            reverseButton.GetComponent<Button>().interactable = true;
+            if (reverseButton.transform.localPosition.x <= savedPostionButtonTurn[hero_Script._heroTurn - 1])
+            {
+                reverseButton.GetComponent<Button>().interactable = false;
+            }
         }
     }
 
 
+    //Set if haven't reversed
+    private void setLineZero(bool isback)
+    {
+        GameObject[] reverseButtons = GameObject.FindGameObjectsWithTag("reverseButton");
+        foreach (GameObject reverseButton in reverseButtons)
+        {
+            reverseButton.GetComponent<Button>().interactable = isback;
+        }
+    }
 }

@@ -68,14 +68,14 @@ public class enemyScript : MonoBehaviour {
                     this.transform.eulerAngles = new Vector3(0, -90, 0);
                     this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
                     isJump = false;
-                    print("jump");
+                    //print("jump");
                     isJump = false;
                 }else if(positions[index].x == positions[index - 1].x && isJump == true)
                 {
                     this.transform.eulerAngles = new Vector3(0, 0, 0);
                     this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
                     isJump = false;
-                    print("jump");
+                    //print("jump");
                 }
             }
             
@@ -117,7 +117,7 @@ public class enemyScript : MonoBehaviour {
     {
         _enemyTurn++;
         isJump = true;
-        print("enemy: " + _enemyTurn);
+        //print("enemy: " + _enemyTurn);
         savedEnemyTurn.Add(_enemyTurn);
         //turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
     }
