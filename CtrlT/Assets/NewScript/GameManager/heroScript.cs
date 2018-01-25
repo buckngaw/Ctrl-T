@@ -285,6 +285,7 @@ public class heroScript : MonoBehaviour {
         if (other.gameObject.tag == "enemy")
         {
             print("OUCH! you're lose");
+            this.gameObject.SetActive(false);
             Main_Script._isEndGame = true;
             Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
             //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);

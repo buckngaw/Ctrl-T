@@ -16,9 +16,12 @@ public class Main : MonoBehaviour {
     public Text _textStarBack;
     public Text _fixReversetext;
     public Text _fixFreezetext;
+    public RawImage fixCircleReverse;
+    public RawImage fixCirclePause;
     public RawImage endGameImageWin;
     public RawImage endGameImageLose;
     public Image starImage;
+    public Button reverseButton;
     public Button freezeButton;
     public Button forwardButton;
     public GameObject buttonManager_GameObject;
@@ -60,6 +63,9 @@ public class Main : MonoBehaviour {
 
         starImage.gameObject.SetActive(false);
 
+        fixCircleReverse.gameObject.SetActive(false);
+
+        fixCirclePause.gameObject.SetActive(false);
         freezeButton.interactable = false;
         //change normal color of button
         /*ColorBlock cb = freezeButton.colors;
@@ -80,10 +86,12 @@ public class Main : MonoBehaviour {
         {
             print("fixActionPointTurn" + fixActionPointTurn);
             _fixReversetext.text = "" + fixActionPointTurn;
+            fixCircleReverse.gameObject.SetActive(true);
         }
         if (ChooseFeature[4])
         {
             _fixFreezetext.text = "" + fixNumFreeze;
+            fixCirclePause.gameObject.SetActive(true);
         }
         /*if (typeHeroSkill == 1) // normal mode
         {
@@ -252,7 +260,20 @@ public class Main : MonoBehaviour {
                 }
                 hero_Script._heroTurn++;
                 _numReverseTurn++;
-                if (ChooseFeature[2]) { _fixReversetext.text = " " + (fixActionPointTurn - _numReverseTurn); }
+                if (ChooseFeature[2])
+                {
+                    if(fixActionPointTurn - _numReverseTurn > 0)
+                    {
+                        _fixReversetext.text = "" + (fixActionPointTurn - _numReverseTurn);
+                    }
+                    else
+                    {
+                        _fixReversetext.text = "";
+                        fixCircleReverse.gameObject.SetActive(false);
+                        reverseButton.interactable = false;
+                    }
+
+                }
                 actionPoint--;
                 _textAP.text = "" + actionPoint;
                 //print("heroturn: " + hero_Script._heroTurn + " Enemy turn: " + enemy_Script._enemyTurn);
@@ -289,7 +310,16 @@ public class Main : MonoBehaviour {
                 _numFreeze++;
                 if (ChooseFeature[4])
                 {
-                    _fixFreezetext.text = "" + (fixNumFreeze - _numFreeze);
+                    if (fixNumFreeze - _numFreeze > 0)
+                    {
+                        _fixFreezetext.text = "" + (fixNumFreeze - _numFreeze);
+                    }
+                    else
+                    {
+                        _fixFreezetext.text = "";
+                        fixCirclePause.gameObject.SetActive(false);
+                        freezeButton.interactable = false;
+                    }
                 }
                 // reset halo when choose to freeze enemy
                 /*if (_isClickedFreeze)

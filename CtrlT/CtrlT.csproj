@@ -90,6 +90,7 @@
     <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
     <Compile Include="Assets\download\TornadoBanditsStudio\Low Poly Free Pack\Scripts\TBS_CameraMovement.cs" />
     <Compile Include="Assets\download\TornadoBanditsStudio\Low Poly Free Pack\Water\TBS_Water.cs" />
+    <Compile Include="Assets\main_selectEP.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\statusTile.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\testChangeUV.cs" />
     <Compile Include="Assets\NewScript\GameManager\buttonManager.cs" />
