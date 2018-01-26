@@ -848,7 +848,7 @@ RectTransform:
   m_Children:
   - {fileID: 2144948524}
   m_Father: {fileID: 2049767426}
-  m_RootOrder: 12
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8544,13 +8544,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 1613870049}
 --- !u!114 &1613870051 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114921075506012858, guid: eb08b80673cece240b06a3d547321423,
-    type: 2}
-  m_PrefabInternal: {fileID: 1613870049}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!114 &1613870052 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114345307238481530, guid: eb08b80673cece240b06a3d547321423,
+  m_PrefabParentObject: {fileID: 114947515602113084, guid: eb08b80673cece240b06a3d547321423,
     type: 2}
   m_PrefabInternal: {fileID: 1613870049}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -13161,12 +13155,12 @@ Prefab:
         type: 2}
       propertyPath: _textStar
       value: 
-      objectReference: {fileID: 1613870052}
+      objectReference: {fileID: 1613870051}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
       propertyPath: _textStarBack
       value: 
-      objectReference: {fileID: 1613870051}
+      objectReference: {fileID: 0}
     - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
         type: 2}
       propertyPath: _fixReversetext
@@ -14197,6 +14191,7 @@ RectTransform:
   - {fileID: 1112164207}
   - {fileID: 1044542901}
   - {fileID: 393207882}
+  - {fileID: 181538102}
   - {fileID: 1613870050}
   - {fileID: 926574602}
   - {fileID: 680657185}
@@ -14205,7 +14200,6 @@ RectTransform:
   - {fileID: 1042142223}
   - {fileID: 657580318}
   - {fileID: 1338406018}
-  - {fileID: 181538102}
   - {fileID: 1783478012}
   - {fileID: 226752365}
   - {fileID: 1733772646}

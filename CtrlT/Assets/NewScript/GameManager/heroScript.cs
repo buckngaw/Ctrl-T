@@ -45,6 +45,7 @@ public class heroScript : MonoBehaviour {
         _tileIsWalk = false;
         _targetPosition = transform.position;
         transform.position = new Vector3(0, 7f, 0);
+        _countStar = Main_Script.countStarWin;
 
         _winPointX = Main_Script.winPoint.x;
         _winPointZ = Main_Script.winPoint.z;
@@ -121,7 +122,7 @@ public class heroScript : MonoBehaviour {
         {
             if (!Main_Script.ChooseFeature[3])
             {
-                if (_countStar == Main_Script.countStarWin)
+                if (_countStar == 0)
                 {
                     print("Win");
                     Main_Script._isEndGame = true;
@@ -295,9 +296,9 @@ public class heroScript : MonoBehaviour {
         if (other.gameObject.tag == "star")
         {
             print("OUCH!");
-            _countStar++;
+            _countStar--;
             other.gameObject.SetActive(false);
-            Main_Script._textStar.text = " " + _countStar;
+            Main_Script._textStar.text = "" + _countStar;
         }
     }
 

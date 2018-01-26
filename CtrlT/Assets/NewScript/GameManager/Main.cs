@@ -13,7 +13,6 @@ public class Main : MonoBehaviour {
     public Text _textAP;
     public Vector3 winPoint;
     public Text _textStar;
-    public Text _textStarBack;
     public Text _fixReversetext;
     public Text _fixFreezetext;
     public RawImage fixCircleReverse;
@@ -80,7 +79,7 @@ public class Main : MonoBehaviour {
         if (ChooseFeature[1])
         {
             starImage.gameObject.SetActive(true);
-            _textStarBack.text = "  /" + countStarWin;
+            _textStar.text = "" + countStarWin;
         }
         if (ChooseFeature[2])
         {
