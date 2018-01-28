@@ -14,6 +14,7 @@ public class heroScript : MonoBehaviour {
     public bool[] direction { get; set; } // 0 = right, 1 = left , 2 = front , 3 = back
     public bool heroFinishedMove { get; set; }
     public int _heroTurn { get; set; }
+    //public ParticleSystem reverse;
 
     public GameObject tileCheckerR;
     public GameObject tileCheckerL;
@@ -34,6 +35,7 @@ public class heroScript : MonoBehaviour {
     private int _countStar;
 
     public bool _tileIsWalk { get; set; }
+    public bool _isEffect { get; set; }
 
     GameObject[] tiles;
 
@@ -43,6 +45,7 @@ public class heroScript : MonoBehaviour {
         direction = new bool[4]; // 4 point move ->  0 = right, 1 = left , 2 = front , 3 = back
         isMove = false;
         _tileIsWalk = false;
+        //reverse.Stop();
         _targetPosition = transform.position;
         transform.position = new Vector3(0, 7f, 0);
         _countStar = Main_Script.countStarWin;
@@ -73,6 +76,12 @@ public class heroScript : MonoBehaviour {
                 //print("heroTurn" + _heroTurn);
                 //turnManager_Script.savedTurn.Add(turnManager_Script.enviTurn);
             }
+        }
+
+        if (_isEffect)
+        {
+            print("effect");
+            //reverse.Play();
         }
 
         //arrow control

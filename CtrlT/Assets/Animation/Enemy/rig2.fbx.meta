@@ -11,15 +11,27 @@ ModelImporter:
     100006: //RootNode
     100008: transform1
     100010: transform2
+    100012: node_id4
+    100014: node_id5
+    100016: node_id8 1
     400000: pCube1
     400002: pCube2
     400004: pCube3
     400006: //RootNode
     400008: transform1
     400010: transform2
+    400012: node_id4
+    400014: node_id5
+    400016: node_id8 1
     2300000: pCube3
+    2300002: node_id8 1
+    2300004: //RootNode
     3300000: pCube3
+    3300002: node_id8 1
+    3300004: //RootNode
     4300000: pCube3
+    4300002: node_id8
+    4300004: node_id8
     7400000: Take 001
     9500000: //RootNode
   materials:

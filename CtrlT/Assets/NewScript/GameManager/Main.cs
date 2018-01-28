@@ -36,6 +36,7 @@ public class Main : MonoBehaviour {
     public bool _isReverse { get; set; } // Use to can't click tile
     public bool _isReverseFinish { get; set; } // Use when fading and change enemy pos.y
     public bool _cantPause { get; set; }
+    public bool _effect { get; set; }
 
     private heroScript hero_Script;
     private enemyScript enemy_Script;
@@ -241,12 +242,14 @@ public class Main : MonoBehaviour {
                     else
                     {
                         enemy_Script._isReversing = true;
+                        hero_Script._isEffect = true;
+                        print("xxx");
                         enemy_Script._enemyTurn = enemy_Script.savedEnemyTurn[_reverseTurn]; // Location = turn that reverse
                         if (_isReverseFinish)
                         {
                             //enemy change pos.y 
-                            enemy_Script._isChangePosY = true;
-                        }
+                            enemy_Script._isChangePosY = true;                           
+}
                         //print("savedEnemyTurn: " + enemy_Script._enemyTurn);
                         enemy_Script.savedEnemyTurn.Add(enemy_Script._enemyTurn);
                         //_isReverse = false;

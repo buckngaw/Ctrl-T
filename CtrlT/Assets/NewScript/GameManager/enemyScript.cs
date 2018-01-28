@@ -14,6 +14,7 @@ public class enemyScript : MonoBehaviour {
     public ParticleSystem pause;
     public Vector3[] positions;
     public Vector3 collectPosition;
+
     public bool isFreeze { get; set; }
     public int _enemyTurn { get; set; }
 
