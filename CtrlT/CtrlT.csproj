@@ -88,8 +88,16 @@
     <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
     <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
     <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
+    <Compile Include="Assets\download\ParticleLight\Scripts\UVScroller_C.cs" />
     <Compile Include="Assets\download\TornadoBanditsStudio\Low Poly Free Pack\Scripts\TBS_CameraMovement.cs" />
     <Compile Include="Assets\download\TornadoBanditsStudio\Low Poly Free Pack\Water\TBS_Water.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\main_selectEP.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\statusTile.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\testChangeUV.cs" />
@@ -172,6 +180,7 @@
     <Compile Include="Assets\SimpleFirebaseUnity\Sample\SampleScript.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
@@ -221,6 +230,8 @@
     <None Include="Assets\Toon Forest free set\sqript\custom3.shader" />
     <None Include="Assets\download\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
     <None Include="Assets\download\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Unlit.shader" />
+    <None Include="Assets\download\ParticleLight\Read Me\Read Me.txt" />
+    <None Include="Assets\download\ParticleLight\Shader\AdditiveMask.shader" />
     <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
     <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
     <None Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
