@@ -81,6 +81,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\download\Fork Particle Variety Pack FX\Assets\Scripts\ForkAPI\CanvasButtonController.cs" />
+    <Compile Include="Assets\download\Fork Particle Variety Pack FX\Assets\Scripts\ForkAPI\ForkParticleEffect.cs" />
+    <Compile Include="Assets\download\Fork Particle Variety Pack FX\Assets\Scripts\ForkAPI\ForkParticlePlugin.cs" />
+    <Compile Include="Assets\download\Fork Particle Variety Pack FX\Assets\Scripts\ForkAPI\PSBAsset.cs" />
     <Compile Include="Assets\download\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
     <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
     <Compile Include="Assets\download\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
@@ -228,6 +232,17 @@
     <None Include="Assets\Toon Forest free set\sqript\custom.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom2.shader" />
     <None Include="Assets\Toon Forest free set\sqript\custom3.shader" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Alien_Fire_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Cartoon_Blast_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Confetti_Cartoon_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Firework_Celebretion_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\ForkParticle.shader" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Magic_Spiral_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Magic_Twister_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Snow_Cartoon_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Stylized_Blast_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Stylized_Space_Explosion_PSK.xml" />
+    <None Include="Assets\download\Fork Particle Variety Pack FX\Assets\Resources\ForkFX\Thunder_Cloud_PSK.xml" />
     <None Include="Assets\download\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Basic.shader" />
     <None Include="Assets\download\Free Low Poly Desert Pack\Materials\Shaders\Vertex_Color_Unlit.shader" />
     <None Include="Assets\download\ParticleLight\Read Me\Read Me.txt" />
