@@ -19,6 +19,7 @@ public class enemyScript : MonoBehaviour {
 
 
     public bool isFreeze { get; set; }
+    public bool isFall { get; set; }
     public int _enemyTurn { get; set; }
 
     private float _movespeed = 4.0f;
@@ -48,7 +49,7 @@ public class enemyScript : MonoBehaviour {
             //Set enemy position y = 1.2
             tempPosition.x = positions[index].x;
             tempPosition.z = positions[index].z;
-            if (!isObstacle)
+            if (!isObstacle && !isTileMove)
             {
                 tempPosition.y = 8.0f;
             }
@@ -112,11 +113,13 @@ public class enemyScript : MonoBehaviour {
             {
                 this.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
                 this.transform.GetChild(0).GetComponent<Collider>().enabled = true;
+                isFall = false;
             }
             if (isTileMove && this.transform.position.y == -0.5)
             {
                 this.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
                 this.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+                isFall = true;
             }
         }
 

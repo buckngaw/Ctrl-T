@@ -68,3 +68,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NewScence/level/level/lv1/lv1-3.unity
     guid: 94b88a61b761d2b4f825c2420f909571
+  - enabled: 1
+    path: Assets/NewScence/level/level/lv1/lv1-4.unity
+    guid: 3b7c0c3dfcd5bc144bb4ef63880a9124

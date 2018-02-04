@@ -78,6 +78,8 @@ public class heroScript : MonoBehaviour {
             }
         }
 
+    
+
 
         //arrow control
         /*

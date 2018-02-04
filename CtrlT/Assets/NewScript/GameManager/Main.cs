@@ -341,6 +341,33 @@ public class Main : MonoBehaviour {
         _textAP.text = "" + actionPoint;
     }
 
+    public void checkIsfall()
+    {
+        //bool isFall = false;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            enemy_Script = enemy.GetComponent<enemyScript>();
+            if(hero_Script.gameObject.transform.position.x == enemy_Script.gameObject.transform.position.x
+                && hero_Script.gameObject.transform.position.z == enemy_Script.gameObject.transform.position.z)
+            {
+                if (enemy_Script.isFall)
+                {
+                    Vector3 temp = hero_Script.gameObject.transform.position;
+                    temp.y = -0.10f;
+                    hero_Script.gameObject.transform.position = temp;
+                    print("Lose");
+                    _isEndGame = true;
+                    endGameImageLose.gameObject.SetActive(_isEndGame);
+                    
+
+                   // isFall = true;
+                }
+            }
+        }
+        //return isFall;
+    }
+
     private void heroJump(Vector3 positionMove)
     {
         GameObject hero = GameObject.Find("Hero");
