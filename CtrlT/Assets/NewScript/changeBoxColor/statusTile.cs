@@ -9,7 +9,7 @@ public class statusTile : MonoBehaviour {
 
     public GameObject Main_GameObject;
     private Main main_Script;
-
+    public bool isTileMove;
     public bool canWalk { get; set; }
 
     // Use this for initialization
@@ -33,10 +33,10 @@ public class statusTile : MonoBehaviour {
         {
             if (canWalk)
             {
-                //print("canWalk: " + canWalk);
-                Hero_Script.checkDirection(this.gameObject);
-                //print("after");
-                //return tile that canWalk = true
+                    //print("canWalk: " + canWalk);
+                    Hero_Script.checkDirection(this.gameObject);
+                    //print("after");
+                    //return tile that canWalk = true
             }
         }
         else

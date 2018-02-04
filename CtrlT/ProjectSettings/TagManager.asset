@@ -13,6 +13,7 @@ TagManager:
   - collectCystal
   - fadeManager
   - reverseButton
+  - Needle
   layers:
   - Default
   - TransparentFX

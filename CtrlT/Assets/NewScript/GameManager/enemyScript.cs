@@ -12,8 +12,11 @@ public class enemyScript : MonoBehaviour {
 
     public GameObject freezeGameObject;
     public ParticleSystem pause;
+    public bool isObstacle;
+    public bool isTileMove;
     public Vector3[] positions;
     public Vector3 collectPosition;
+
 
     public bool isFreeze { get; set; }
     public int _enemyTurn { get; set; }
@@ -25,7 +28,6 @@ public class enemyScript : MonoBehaviour {
     public bool _isChangePosY { get; set; }
     private Vector3 tempPosition;
     private bool isJump;
-
 
     // Use this for initialization
     void Start () {
@@ -46,7 +48,14 @@ public class enemyScript : MonoBehaviour {
             //Set enemy position y = 1.2
             tempPosition.x = positions[index].x;
             tempPosition.z = positions[index].z;
-            tempPosition.y = 8.0f;
+            if (!isObstacle)
+            {
+                tempPosition.y = 8.0f;
+            }
+            else
+            {
+                tempPosition.y = 1.5f;
+            }
             transform.position = tempPosition;
             if (_isChangePosY)
             {
@@ -64,38 +73,51 @@ public class enemyScript : MonoBehaviour {
         else
         {
             int index = _enemyTurn % positions.Length;
-            if (index != 0)
+            if (!isObstacle && !isTileMove)
             {
-                if (positions[index].z == positions[index - 1].z && isJump == true)
+                if (index != 0)
                 {
-                    if(positions[index].x < positions[index - 1].x)
+                    if (positions[index].z == positions[index - 1].z && isJump == true)
                     {
-                        this.transform.eulerAngles = new Vector3(0, 0, 0);
+                        if (positions[index].x < positions[index - 1].x)
+                        {
+                            this.transform.eulerAngles = new Vector3(0, 0, 0);
+                        }
+                        else
+                        {
+                            this.transform.eulerAngles = new Vector3(0, -180, 0);
+                        }
+                        this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
+                        isJump = false;
+                        //print("jump");
                     }
-                    else
+                    else if (positions[index].x == positions[index - 1].x && isJump == true)
                     {
-                        this.transform.eulerAngles = new Vector3(0, -180, 0);
+                        if (positions[index].z > positions[index - 1].z)
+                        {
+                            this.transform.eulerAngles = new Vector3(0, 0, 0);
+                        }
+                        else if (positions[index].z < positions[index - 1].z)
+                        {
+                            this.transform.eulerAngles = new Vector3(0, 0, 0);
+                        }
+                        this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
+                        isJump = false;
+                        //print("jump");
                     }
-                    this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
-                    isJump = false;
-                    //print("jump");
-                }else if(positions[index].x == positions[index - 1].x && isJump == true)
-                {
-                    if(positions[index].z > positions[index - 1].z)
-                    {
-                        this.transform.eulerAngles = new Vector3(0, 0, 0);
-                    }
-                    else if (positions[index].z < positions[index - 1].z)
-                    {
-                        this.transform.eulerAngles = new Vector3(0, 0, 0);
-                    }
-                    this.transform.GetChild(1).GetComponent<Animator>().Play("jump");
-                    isJump = false;
-                    //print("jump");
                 }
-            }
-            
+            }          
             transform.position = Vector3.MoveTowards(transform.position, positions[index], _movespeed * Time.deltaTime);
+            if (isTileMove && this.transform.position.y != -0.5)
+            {
+                this.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+                this.transform.GetChild(0).GetComponent<Collider>().enabled = true;
+            }
+            if (isTileMove && this.transform.position.y == -0.5)
+            {
+                this.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+                this.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+            }
         }
 
         if (Main_Script.ChooseFeature[3])
@@ -120,13 +142,13 @@ public class enemyScript : MonoBehaviour {
                 Behaviour Halo = (Behaviour)gameObject.GetComponent("Halo");
                 Halo.enabled = false;
             }*/
-    }
+        }
 
-}
+    }
 
     public void EnemyOnMove()
     {
-        _enemyTurn++;
+        _enemyTurn++; 
         isJump = true;
         //print("enemy: " + _enemyTurn);
         savedEnemyTurn.Add(_enemyTurn);

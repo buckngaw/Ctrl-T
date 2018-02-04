@@ -102,7 +102,6 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
-    <Compile Include="Assets\main_selectEP.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\statusTile.cs" />
     <Compile Include="Assets\NewScript\changeBoxColor\testChangeUV.cs" />
     <Compile Include="Assets\NewScript\GameManager\buttonManager.cs" />
@@ -116,6 +115,9 @@
     <Compile Include="Assets\NewScript\GameManager\LoadMap.cs" />
     <Compile Include="Assets\NewScript\GameManager\Main.cs" />
     <Compile Include="Assets\NewScript\GameManager\movement.cs" />
+    <Compile Include="Assets\NewScript\GameManager\obstacles\NeedleHandle.cs" />
+    <Compile Include="Assets\NewScript\GameManager\obstacles\tileMove.cs" />
+    <Compile Include="Assets\NewScript\GameManager\obstacles\TrapNeedle.cs" />
     <Compile Include="Assets\NewScript\GameManager\reverseBackward.cs" />
     <Compile Include="Assets\NewScript\GameManager\reversePanel.cs" />
     <Compile Include="Assets\NewScript\GameManager\spotlightOnTrigger.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Assets\NewScript\Login\clickLevel.cs" />
     <Compile Include="Assets\NewScript\Login\firebaseServiceForLogin.cs" />
     <Compile Include="Assets\NewScript\Login\firebaseServiceForRegister.cs" />
+    <Compile Include="Assets\NewScript\Login\main_selectEP.cs" />
     <Compile Include="Assets\NewScript\Login\Notification.cs" />
     <Compile Include="Assets\NewScript\Login\userData.cs" />
     <Compile Include="Assets\NewScript\Login\usersData.cs" />

@@ -35,7 +35,7 @@ public class heroScript : MonoBehaviour {
     private int _countStar;
 
     public bool _tileIsWalk { get; set; }
-    public bool _isEffect { get; set; }
+    //public bool _isEffect { get; set; }
 
     GameObject[] tiles;
 
@@ -78,11 +78,6 @@ public class heroScript : MonoBehaviour {
             }
         }
 
-        if (_isEffect)
-        {
-            print("effect");
-            //reverse.Play();
-        }
 
         //arrow control
         /*
@@ -123,9 +118,6 @@ public class heroScript : MonoBehaviour {
         }
         */
 
-
-        //Debug.Log("x: " + transform.position.x + " z: " + transform.position.z);
-        //Debug.Log("winx: " + _winPointX + " winz: " + _winPointZ);
         //Check Win?
         if ((transform.position.x == _winPointX) && (transform.position.z == _winPointZ))
         {
@@ -231,7 +223,8 @@ public class heroScript : MonoBehaviour {
         //statusTile statusTile_Script;
         foreach (GameObject tile in tiles)
         {
-            if ((input.transform.position.x == tile.transform.position.x) && (input.transform.position.z == tile.transform.position.z))
+            if ((input.transform.position.x == tile.transform.position.x) 
+                && (input.transform.position.z == tile.transform.position.z))
             {
                 return tile;
             }
@@ -239,7 +232,14 @@ public class heroScript : MonoBehaviour {
             {
                 Renderer rend = tile.gameObject.GetComponent<Renderer>();
                 tile.GetComponent<statusTile>().canWalk = false;
-                rend.material.mainTexture = Resources.Load<Texture>("uvTile/white");
+                if (!tile.GetComponent<statusTile>().isTileMove)
+                {
+                    rend.material.mainTexture = Resources.Load<Texture>("uvTile/white");
+                }else if (tile.GetComponent<statusTile>().isTileMove)
+                {
+                    rend.material.mainTexture = Resources.Load<Texture>("uvTile/rock");
+                }
+                
             }
         }
         return null;
@@ -292,7 +292,7 @@ public class heroScript : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         //print(other.name);
-        if (other.gameObject.tag == "enemy")
+        if (other.gameObject.tag == "enemy" )
         {
             print("OUCH! you're lose");
             this.gameObject.SetActive(false);
@@ -308,6 +308,14 @@ public class heroScript : MonoBehaviour {
             _countStar--;
             other.gameObject.SetActive(false);
             Main_Script._textStar.text = "" + _countStar;
+        }
+        //Needle
+        if(other.gameObject.tag == "Needle")
+        {
+            print("OUCH!");
+            this.gameObject.SetActive(false);
+            Main_Script._isEndGame = true;
+            Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
         }
     }
 

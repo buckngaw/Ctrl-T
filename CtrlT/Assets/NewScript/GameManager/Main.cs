@@ -169,8 +169,8 @@ public class Main : MonoBehaviour {
                     }
 
                     if (hero_Script.heroFinishedMove)
-                    {
-                        //print("hero transform: " + hero_Script.transform.position);
+                    { 
+                        //Mon Move
                         GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
                         foreach (GameObject enemy in enemies)
                         {
@@ -179,10 +179,10 @@ public class Main : MonoBehaviour {
                             enemy_Script.EnemyOnMove();
                             //enemy_Script.onTriggle = false;
                         }
+                            //Tile Move
                         hero_Script.heroFinishedMove = false;
                     }
                 }
-
             }
             else
             {
@@ -242,8 +242,8 @@ public class Main : MonoBehaviour {
                     else
                     {
                         enemy_Script._isReversing = true;
-                        hero_Script._isEffect = true;
-                        print("xxx");
+                        //hero_Script._isEffect = true;
+                        //print("xxx");
                         enemy_Script._enemyTurn = enemy_Script.savedEnemyTurn[_reverseTurn]; // Location = turn that reverse
                         if (_isReverseFinish)
                         {
