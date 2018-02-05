@@ -16,18 +16,24 @@ public class buttonManager : MonoBehaviour {
     public GameObject hero_object;
     private heroScript hero_Script;
 
-    public List<float> savedPostionButtonTurn;
+    public List<float> savedPostionButtonTurnX;
+    public List<List<float>> matrixPositionBtn = new List<List<float>>();
     private bool isReversing;
 
     public bool isBackward { get; set; }
     public bool isForkward { get; set; }
-    public int _line { get; set; }
+    public float _lineY { get; set; }
+    public float _lineX { get; set; }
 
     //private bool isTurn;
     //private int _turn;
     private int _heroTurn;
     private bool _isReverse;
     private bool _setLineZero;
+    private float _initPositionButton;
+    private List<bool> _isFill;
+    private bool[,] _matrixPosition;
+    private int actionPoint;
     //private int _axisX;
     //private int _axisY;
 
@@ -35,6 +41,8 @@ public class buttonManager : MonoBehaviour {
     void Start () {
         Main_Script = Main_GameObject.GetComponent<Main>();
         hero_Script = hero_object.GetComponent<heroScript>();
+        actionPoint = Main_Script.actionPoint - 1;
+        _matrixPosition = new bool[actionPoint, actionPoint];
     }
 
     // Update is called once per frame
@@ -60,7 +68,7 @@ public class buttonManager : MonoBehaviour {
         else if (!isReversing)
         {
             //LINE 0
-            if(_line == 0)
+            if(_lineY == 0)
             {  
                 if (isBackward)
                 {
@@ -78,7 +86,7 @@ public class buttonManager : MonoBehaviour {
                 }
             }
             //LINE > 0
-            else if(_line > 0)
+            else if(_lineY > 0)
             {
                 if (isBackward)
                 {
@@ -107,37 +115,71 @@ public class buttonManager : MonoBehaviour {
         //allButton.Add(goButton);
         Vector3 defaultPosition = new Vector3(-209, -77, 0);
         Vector3 pos = defaultPosition;
+        _initPositionButton = -154;
 
         //inputLine = 1 when click reverse
         //buttonController_script.isBackward
         if (inputLine == 1)
         {
-            _line++; // set new line when reverseTurn
+            _lineY++; // set new line when reverseTurn
             pos.x = clickedButton.GetComponent<RectTransform>().anchoredPosition.x; //same pos.x of turn that reverse
-            pos.y = defaultPosition.y + (55f * _line);
+            if(pos.x == defaultPosition.x)
+            {
+                _lineX = 0;
+            }else if(pos.x != defaultPosition.x)
+            {
+                _lineX = ((Mathf.Abs(_initPositionButton - pos.x)) / 55) + 1;
+            }
+            pos.y = defaultPosition.y + (55f * _lineY);
             isReversing = true;
         }
         else
         {
             if (hero_Script._heroTurn == 0)
             {
+                _lineX = 0;
                 // DO NOTHING. (Begin playing)
             }
             else
             {
-                pos.x = savedPostionButtonTurn[hero_Script._heroTurn - 1] + 55.0f;
-                pos.y = defaultPosition.y + (55f * _line);
+                pos.x = savedPostionButtonTurnX[hero_Script._heroTurn - 1] + 55.0f;
+                if(_lineY == 0)
+                {
+                    pos.y = defaultPosition.y + (55f * _lineY);
+                    print("lineX: " + (int)_lineX);
+                    print("lineY: " + (int)(_lineY));
+                }
+                else if(_lineY > 0)
+                {
+                    if (_matrixPosition[(int)_lineX, (int)(_lineY-1)])
+                    {
+                        print("lineX: " + (int)_lineX);
+                        print("lineY: " + (int)(_lineY - 1));
+                        pos.y = defaultPosition.y + (55f * (_lineY-1));
+                    }
+                    else
+                    {
+                        pos.y = defaultPosition.y + (55f * _lineY);
+                    }
+                }
+
+                _lineX++;
             }
 
             _heroTurn++;
 
         }
-
         RectTransform rectTransform = goButton.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = pos;
-        savedPostionButtonTurn.Add(pos.x);
+        savedPostionButtonTurnX.Add(pos.x);
 
-
+        //Save matrix
+        /*List<float> matrix = new List<float>();
+        matrix.Add(_lineX);
+        matrix.Add(_lineY);
+        matrixPositionBtn.Add(matrix);*/
+        _matrixPosition[(int)_lineX,(int)_lineY] = true;
+        //print("lineX: " + _lineX);
     }
 
 
@@ -148,7 +190,7 @@ public class buttonManager : MonoBehaviour {
         foreach (GameObject reverseButton in reverseButtons)
         {
             reverseButton.GetComponent<Button>().interactable = true;
-            if (reverseButton.transform.localPosition.x > savedPostionButtonTurn[hero_Script._heroTurn - 1])
+            if (reverseButton.transform.localPosition.x > savedPostionButtonTurnX[hero_Script._heroTurn - 1])
             {
                 reverseButton.GetComponent<Button>().interactable = false;
             }
@@ -161,7 +203,7 @@ public class buttonManager : MonoBehaviour {
         foreach (GameObject reverseButton in reverseButtons)
         {
             reverseButton.GetComponent<Button>().interactable = true;
-            if (reverseButton.transform.localPosition.x < savedPostionButtonTurn[hero_Script._heroTurn - 1])
+            if (reverseButton.transform.localPosition.x < savedPostionButtonTurnX[hero_Script._heroTurn - 1])
             {
                 reverseButton.GetComponent<Button>().interactable = false;
             }
@@ -175,7 +217,7 @@ public class buttonManager : MonoBehaviour {
         foreach (GameObject reverseButton in reverseButtons)
         {
             reverseButton.GetComponent<Button>().interactable = true;
-            if (reverseButton.transform.localPosition.x > savedPostionButtonTurn[hero_Script._heroTurn - 1])
+            if (reverseButton.transform.localPosition.x > savedPostionButtonTurnX[hero_Script._heroTurn - 1])
             {
                 reverseButton.GetComponent<Button>().interactable = false;
             }
@@ -188,7 +230,7 @@ public class buttonManager : MonoBehaviour {
         foreach (GameObject reverseButton in reverseButtons)
         {
             reverseButton.GetComponent<Button>().interactable = true;
-            if (reverseButton.transform.localPosition.x <= savedPostionButtonTurn[hero_Script._heroTurn - 1])
+            if (reverseButton.transform.localPosition.x <= savedPostionButtonTurnX[hero_Script._heroTurn - 1])
             {
                 reverseButton.GetComponent<Button>().interactable = false;
             }
