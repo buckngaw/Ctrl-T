@@ -34,6 +34,7 @@ public class buttonManager : MonoBehaviour {
     private List<bool> _isFill;
     private bool[,] _matrixPosition;
     private int actionPoint;
+    private float _lineYMax;
     //private int _axisX;
     //private int _axisY;
 
@@ -43,6 +44,7 @@ public class buttonManager : MonoBehaviour {
         hero_Script = hero_object.GetComponent<heroScript>();
         actionPoint = Main_Script.actionPoint - 1;
         _matrixPosition = new bool[actionPoint, actionPoint];
+        _lineYMax = 1;
     }
 
     // Update is called once per frame
@@ -121,8 +123,9 @@ public class buttonManager : MonoBehaviour {
         //buttonController_script.isBackward
         if (inputLine == 1)
         {
-            _lineY++; // set new line when reverseTurn
+            // set new line when reverseTurn
             pos.x = clickedButton.GetComponent<RectTransform>().anchoredPosition.x; //same pos.x of turn that reverse
+            //Check _lineX = 0?
             if(pos.x == defaultPosition.x)
             {
                 _lineX = 0;
@@ -130,7 +133,40 @@ public class buttonManager : MonoBehaviour {
             {
                 _lineX = ((Mathf.Abs(_initPositionButton - pos.x)) / 55) + 1;
             }
-            pos.y = defaultPosition.y + (55f * _lineY);
+
+
+            //Check choose enter new line?
+            _lineY++;
+            for (int i = 0; i <= _lineYMax; i++)
+            {
+                if (!_matrixPosition[(int)(_lineX), i])
+                {
+                    pos.y = defaultPosition.y + (55f * i);
+                    _lineY = i;
+                    break;
+                }
+            }
+            /*if (!_matrixPosition[(int)(_lineX), (int)(_lineY - 1)])
+            {
+                print("_lineX: " + _lineX);
+                print("_lineY: " + _lineY);
+                print("case1");
+                for (int i = 0; i <= _lineY - 1; i++)
+                {
+                    if (!_matrixPosition[(int)(_lineX), i])
+                    {
+                        pos.y = defaultPosition.y + (55f * i);
+                        _lineY = i;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                print("case2");
+                pos.y = defaultPosition.y + (55f * _lineY);
+            }*/
+            _lineYMax += 1;
             isReversing = true;
         }
         else
@@ -146,40 +182,36 @@ public class buttonManager : MonoBehaviour {
                 if(_lineY == 0)
                 {
                     pos.y = defaultPosition.y + (55f * _lineY);
-                    print("lineX: " + (int)_lineX);
-                    print("lineY: " + (int)(_lineY));
+
                 }
                 else if(_lineY > 0)
                 {
-                    if (_matrixPosition[(int)_lineX, (int)(_lineY-1)])
+                    //if bottom empty
+                    if (!_matrixPosition[(int)(_lineX), (int)(_lineY-1)])
                     {
-                        print("lineX: " + (int)_lineX);
-                        print("lineY: " + (int)(_lineY - 1));
-                        pos.y = defaultPosition.y + (55f * (_lineY-1));
+                        for(int i = 0; i <= _lineY-1; i++)
+                        {
+                            if (!_matrixPosition[(int)(_lineX), i]){
+                                pos.y = defaultPosition.y + (55f * i);
+                                _lineY = i;
+                                break;
+                            }
+                        }
+
                     }
                     else
                     {
                         pos.y = defaultPosition.y + (55f * _lineY);
                     }
                 }
-
-                _lineX++;
             }
-
             _heroTurn++;
-
         }
         RectTransform rectTransform = goButton.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = pos;
         savedPostionButtonTurnX.Add(pos.x);
-
-        //Save matrix
-        /*List<float> matrix = new List<float>();
-        matrix.Add(_lineX);
-        matrix.Add(_lineY);
-        matrixPositionBtn.Add(matrix);*/
-        _matrixPosition[(int)_lineX,(int)_lineY] = true;
-        //print("lineX: " + _lineX);
+        _matrixPosition[(int)_lineX, (int)_lineY] = true;
+        _lineX++;
     }
 
 
