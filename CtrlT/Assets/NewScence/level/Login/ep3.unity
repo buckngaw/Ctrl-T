@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-4
+  stateNumber: 24
 --- !u!65 &144793536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -830,6 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-10
+  stateNumber: 30
 --- !u!1001 &470916539
 Prefab:
   m_ObjectHideFlags: 0
@@ -970,6 +972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-2
+  stateNumber: 22
 --- !u!65 &507199794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1341,6 +1344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-6
+  stateNumber: 26
 --- !u!65 &640735932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1944,6 +1948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-7
+  stateNumber: 27
 --- !u!4 &901272053 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010536569918, guid: 7678334d479da9f4db360c7af983357d,
@@ -2320,7 +2325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ee444d3aac1b24097d242d96bbff4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _username: {fileID: 0}
 --- !u!1001 &992689462
 Prefab:
   m_ObjectHideFlags: 0
@@ -2774,6 +2778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-3
+  stateNumber: 23
 --- !u!65 &1202567493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2810,6 +2815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-8
+  stateNumber: 28
 --- !u!65 &1277537078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3190,6 +3196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-5
+  stateNumber: 25
 --- !u!65 &1508506611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3401,6 +3408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-1
+  stateNumber: 21
 --- !u!4 &1622688818 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: f5bd2c36cc8c2f74a942ffd57b6d534f, type: 3}
@@ -4266,3 +4274,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv3-9
+  stateNumber: 29

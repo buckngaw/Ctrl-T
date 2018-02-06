@@ -18,6 +18,8 @@ public class firebaseServiceForLogin : MonoBehaviour {
     public InputField password;
     public Text _notification;
 
+    public static usersData user = null;
+
     //for Decrypt password
     static string PasswordHash = "P@@Sw0rd";
     static string SaltKey = "S@LT&KEY";
@@ -48,9 +50,7 @@ public class firebaseServiceForLogin : MonoBehaviour {
                 usersData myuser = new usersData();       
                 myuser.username = child["username"] as string;
                 myuser.password = child["password"] as string;
-                myuser.starEP1 = child["starEP1"] as string;
-                myuser.starEP2 = child["starEP2"] as string;
-                myuser.starEP3 = child["starEP3"] as string;
+                myuser.save = child["save"] as string;
                 myuser.key = key as string;
 
                 string decryptPassword = myuser.password;
@@ -58,7 +58,8 @@ public class firebaseServiceForLogin : MonoBehaviour {
                 if (username.text == myuser.username && password.text == decryptPassword)
                 {
                     globalUser.thisUser = myuser;
-                    SceneManager.LoadScene("Menu");
+                    user = myuser;
+                    SceneManager.LoadScene("newSelcetEpisode");
                 }else if(username.text == myuser.username && password.text != decryptPassword)
                 {
                     notification(3);

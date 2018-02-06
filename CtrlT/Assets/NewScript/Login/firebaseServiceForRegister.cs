@@ -48,9 +48,7 @@ public class firebaseServiceForRegister : MonoBehaviour {
                 string encryotPassword = Encrypt(password.text);
                 string json = "{ \"username\": \"" + username.text + "\", \"password\": \""
                             + encryotPassword 
-                            + "\",\"starEP1\":\"0A0B0C0D0E0F0G0H0I0J0K0L0M0N0O0P0Q0R0S0T\""
-                            + ",\"starEP2\":\"0A0B0C0D0E0F0G0H0I0J0K0L0M0N0O0P0Q0R0S0T\""
-                           + ",\"starEP3\":\"0A0B0C0D0E0F0G0H0I0J0K0L0M0N0O0P0Q0R0S0T\" }";
+                            + "\",\"save\":\"1\"}";
 
                 Debug.Log(json);           
                 firebase.Child("users").Push(json, true);

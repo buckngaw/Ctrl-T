@@ -187,7 +187,24 @@ public class buttonManager : MonoBehaviour {
                 else if(_lineY > 0)
                 {
                     //if bottom empty
-                    if (!_matrixPosition[(int)(_lineX), (int)(_lineY-1)])
+
+                    if (_matrixPosition[(int)(_lineX), (int)(_lineY)])
+                    {
+                        bool isEmpty = true;
+                        int i = (int)(_lineY)+1;
+                        while(isEmpty)
+                        {
+                            if(!_matrixPosition[(int)(_lineX), i])
+                            {
+                                pos.y = defaultPosition.y + (55f * i);
+                                _lineY = i;
+                                isEmpty = false;
+                            }
+                            i++;
+                        }
+                    }
+                    //Y axis is empty?
+                    else if (!_matrixPosition[(int)(_lineX), (int)(_lineY-1)])
                     {
                         for(int i = 0; i <= _lineY-1; i++)
                         {

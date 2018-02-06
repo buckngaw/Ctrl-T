@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-4
+  stateNumber: 5
 --- !u!65 &144793536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -862,6 +863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-0
+  stateNumber: 1
 --- !u!1 &507199792 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: f5bd2c36cc8c2f74a942ffd57b6d534f, type: 3}
@@ -878,6 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-8
+  stateNumber: 9
 --- !u!65 &507199794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1121,6 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-6
+  stateNumber: 7
 --- !u!65 &640735932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1818,6 +1822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-2
+  stateNumber: 3
 --- !u!1 &908210350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,7 +2158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ee444d3aac1b24097d242d96bbff4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _username: {fileID: 0}
 --- !u!1001 &992689462
 Prefab:
   m_ObjectHideFlags: 0
@@ -2606,6 +2610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-7
+  stateNumber: 8
 --- !u!65 &1202567493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2675,6 +2680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-3
+  stateNumber: 4
 --- !u!65 &1277537078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3006,6 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-5
+  stateNumber: 6
 --- !u!65 &1508506611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3112,6 +3119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-9
+  stateNumber: 10
 --- !u!4 &1622688818 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: f5bd2c36cc8c2f74a942ffd57b6d534f, type: 3}
@@ -4012,3 +4020,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenceName: lv1-1
+  stateNumber: 2

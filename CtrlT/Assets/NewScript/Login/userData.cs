@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class userData : MonoBehaviour {
 
-    public Text _username;
     // Use this for initialization
     void Start () {
 		

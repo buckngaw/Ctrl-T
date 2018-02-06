@@ -5349,6 +5349,11 @@ Prefab:
       propertyPath: reverseButton
       value: 
       objectReference: {fileID: 361014745}
+    - target: {fileID: 114819358884794258, guid: 1d2849dad497d7d4e86ae13262c47cbf,
+        type: 2}
+      propertyPath: stateNumber
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d2849dad497d7d4e86ae13262c47cbf, type: 2}
   m_IsPrefabParent: 0

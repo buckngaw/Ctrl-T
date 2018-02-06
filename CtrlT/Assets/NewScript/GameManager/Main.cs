@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour {
 
+    public int stateNumber;
     public int actionPoint;
     //public int typeHeroSkill; 
     public int countStarWin;
@@ -67,14 +68,9 @@ public class Main : MonoBehaviour {
 
         fixCirclePause.gameObject.SetActive(false);
         freezeButton.interactable = false;
-        //change normal color of button
-        /*ColorBlock cb = freezeButton.colors;
-        cb.normalColor = Color.gray; 
-        freezeButton.colors = cb;*/
 
         if (ChooseFeature[0])
         {
-            //freezeButton.gameObject.SetActive(true);
             freezeButton.interactable = true;
         }
         if (ChooseFeature[1])
@@ -93,25 +89,6 @@ public class Main : MonoBehaviour {
             _fixFreezetext.text = "" + fixNumFreeze;
             fixCirclePause.gameObject.SetActive(true);
         }
-        /*if (typeHeroSkill == 1) // normal mode
-        {
-            freezeButton.gameObject.SetActive(false);
-            starImage.gameObject.SetActive(false);
-            //print("typeHeroSkill 1");
-        }
-        if (typeHeroSkill == 3) // star mode
-        {
-            freezeButton.gameObject.SetActive(false);
-            _textStarBack.text = "  /" + countStarWin;
-        }
-        if (typeHeroSkill == 2) // freeze mode
-        {
-            starImage.gameObject.SetActive(false);
-        }
-        if(typeHeroSkill == 4) //fix AP
-        {
-            starImage.gameObject.SetActive(false);
-        }*/
 
         endGameImageWin.gameObject.SetActive(false);
         endGameImageLose.gameObject.SetActive(false);

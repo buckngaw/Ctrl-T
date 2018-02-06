@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SimpleFirebaseUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,9 @@ public class heroScript : MonoBehaviour {
     //Main
     public GameObject Main_GameObject;
     private Main Main_Script;
+
+    //Firebase
+    Firebase firebase;
 
     public bool isMove {get; set;} // can move?
     public bool heroOnMove { get; set; } // moving
@@ -45,6 +49,10 @@ public class heroScript : MonoBehaviour {
         direction = new bool[4]; // 4 point move ->  0 = right, 1 = left , 2 = front , 3 = back
         isMove = false;
         _tileIsWalk = false;
+
+        //Firebase
+        firebase = Firebase.CreateNew("ctrlplust-33926.firebaseio.com");
+
         //reverse.Stop();
         _targetPosition = transform.position;
         transform.position = new Vector3(0, 7f, 0);
@@ -127,35 +135,13 @@ public class heroScript : MonoBehaviour {
             {
                 if (_countStar == 0)
                 {
-                    print("Win");
-                    Main_Script._isEndGame = true;
-                    //print(turnManager_Script.isWarp);
-                    /*if (Main_Script.isWarp)
-                    {
-                        SceneManager.LoadScene(Warp);
-                    }*/
-                    //else
-                    {
-                        Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-                        //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
-                    }
+                    Win();
                 }
             }else if (Main_Script.ChooseFeature[3])
             {
                 if (Main_Script.onTrigger)
                 {
-                    print("Win");
-                    Main_Script._isEndGame = true;
-                    //print(turnManager_Script.isWarp);
-                    /*if (Main_Script.isWarp)
-                    {
-                        SceneManager.LoadScene(Warp);
-                    }*/
-                    //else
-                    {
-                        Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-                       // Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
-                    }
+                    Win();
                 }
                 else if (Main_Script.actionPoint <= 0 && (transform.position.x != _winPointX && transform.position.z != _winPointZ))
                 {
@@ -180,6 +166,20 @@ public class heroScript : MonoBehaviour {
                 //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
             }
         }
+    }
+
+    //If win
+    public void Win()
+    {
+        print("Win");
+        Main_Script._isEndGame = true;
+        Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
+        int nextLevel = Main_Script.stateNumber + 1;
+        string json = "{ \"username\": \"" + firebaseServiceForLogin.user.username + "\", \"password\": \""
+                    + firebaseServiceForLogin.user.password
+                    + "\",\"save\":\"" + nextLevel + "\"}";
+        firebaseServiceForLogin.user.save = nextLevel.ToString();
+        firebase.Child("users/" + firebaseServiceForLogin.user.key).UpdateValue(json, true, FirebaseParam.Empty);
     }
 
     private bool checkTile(GameObject input, GameObject[] tiles)
