@@ -122,14 +122,21 @@ public class heroScript : MonoBehaviour {
         }
     }
 
-    //If win
+    //Win
     public void Win()
     {
         print("Win");
         this.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("chickyJump");
+        StartCoroutine(WaitForAnimWin(1.2f));
+        
+    }
+
+    private IEnumerator WaitForAnimWin(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         Main_Script._isEndGame = true;
         Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-        if(firebaseServiceForLogin.user.username != "Admin")
+        if (firebaseServiceForLogin.user.username != "Admin")
         {
             int nextLevel = Main_Script.stateNumber + 1;
             string json = "{ \"username\": \"" + firebaseServiceForLogin.user.username + "\", \"password\": \""
@@ -138,13 +145,22 @@ public class heroScript : MonoBehaviour {
             firebaseServiceForLogin.user.save = nextLevel.ToString();
             firebase.Child("users/" + firebaseServiceForLogin.user.key).UpdateValue(json, true, FirebaseParam.Empty);
         }
+
     }
 
+    //Lose
     public void Lose()
     {
         print("Lose");
+        StartCoroutine(WaitForAnimLose(0.5f));
+    }
+
+    private IEnumerator WaitForAnimLose(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         Main_Script._isEndGame = true;
         Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
+
     }
 
     private bool checkTile(GameObject input, GameObject[] tiles)
@@ -263,10 +279,7 @@ public class heroScript : MonoBehaviour {
         {
             print("OUCH! you're lose");
             this.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("crash");
-            //this.gameObject.SetActive(false);
-            Main_Script._isEndGame = true;
-            Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
-            //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
+            StartCoroutine(WaitForCrash(1.2f));
         }
 
         //star
@@ -283,10 +296,15 @@ public class heroScript : MonoBehaviour {
         {
             print("OUCH!");
             this.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("crash");
-            this.gameObject.SetActive(false);
-            Main_Script._isEndGame = true;
-            Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
+            StartCoroutine(WaitForCrash(1.2f));
         }
+    }
+
+    private IEnumerator WaitForCrash(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        Main_Script._isEndGame = true;
+        Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
     }
 
 

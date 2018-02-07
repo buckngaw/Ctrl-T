@@ -335,15 +335,19 @@ public class Main : MonoBehaviour {
                     hero_Script.gameObject.transform.position = temp;*/
                     hero_Script.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("fall");
                     print("Lose");
-                    _isEndGame = true;
-                    endGameImageLose.gameObject.SetActive(_isEndGame);
-                    
-
-                   // isFall = true;
+                    StartCoroutine(WaitForFall(0.6f));
+                    // isFall = true;
                 }
             }
         }
         //return isFall;
+    }
+
+    private IEnumerator WaitForFall(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        _isEndGame = true;
+        endGameImageLose.gameObject.SetActive(_isEndGame);
     }
 
     private void heroJump(Vector3 positionMove)

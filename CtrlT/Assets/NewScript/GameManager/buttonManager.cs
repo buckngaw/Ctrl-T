@@ -43,7 +43,7 @@ public class buttonManager : MonoBehaviour {
         Main_Script = Main_GameObject.GetComponent<Main>();
         hero_Script = hero_object.GetComponent<heroScript>();
         actionPoint = Main_Script.actionPoint - 1;
-        _matrixPosition = new bool[actionPoint, actionPoint];
+        _matrixPosition = new bool[actionPoint*2, actionPoint*2];
         _lineYMax = 1;
     }
 
