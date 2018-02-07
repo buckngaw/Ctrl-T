@@ -86,48 +86,6 @@ public class heroScript : MonoBehaviour {
             }
         }
 
-    
-
-
-        //arrow control
-        /*
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (checkTile(tileCheckerR, tiles))
-            {
-                isMove = true;
-                direction[0] = true; //right
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (checkTile(tileCheckerL, tiles))
-            {
-                isMove = true;
-                direction[1] = true; //left
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (checkTile(tileCheckerF, tiles))
-            {
-                isMove = true;
-                direction[2] = true; //up
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (checkTile(tileCheckerB, tiles))
-            {
-                isMove = true;
-                direction[3] = true; //down
-            }
-        }
-        */
-
         //Check Win?
         if ((transform.position.x == _winPointX) && (transform.position.z == _winPointZ))
         {
@@ -147,9 +105,7 @@ public class heroScript : MonoBehaviour {
                 {
                     if(Main_Script.ChooseFeature[3] || !Main_Script.ChooseFeature[3])
                     {
-                        print("Lose");
-                        Main_Script._isEndGame = true;
-                        Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
+                        Lose();
                         //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
                     }
                 }
@@ -160,9 +116,7 @@ public class heroScript : MonoBehaviour {
         {
             if (Main_Script.actionPoint <= 0 )
             {
-                print("Lose");
-                Main_Script._isEndGame = true;
-                Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
+                Lose();
                 //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
             }
         }
@@ -172,14 +126,25 @@ public class heroScript : MonoBehaviour {
     public void Win()
     {
         print("Win");
+        this.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("chickyJump");
         Main_Script._isEndGame = true;
         Main_Script.endGameImageWin.gameObject.SetActive(Main_Script._isEndGame);
-        int nextLevel = Main_Script.stateNumber + 1;
-        string json = "{ \"username\": \"" + firebaseServiceForLogin.user.username + "\", \"password\": \""
-                    + firebaseServiceForLogin.user.password
-                    + "\",\"save\":\"" + nextLevel + "\"}";
-        firebaseServiceForLogin.user.save = nextLevel.ToString();
-        firebase.Child("users/" + firebaseServiceForLogin.user.key).UpdateValue(json, true, FirebaseParam.Empty);
+        if(firebaseServiceForLogin.user.username != "Admin")
+        {
+            int nextLevel = Main_Script.stateNumber + 1;
+            string json = "{ \"username\": \"" + firebaseServiceForLogin.user.username + "\", \"password\": \""
+                        + firebaseServiceForLogin.user.password
+                        + "\",\"save\":\"" + nextLevel + "\"}";
+            firebaseServiceForLogin.user.save = nextLevel.ToString();
+            firebase.Child("users/" + firebaseServiceForLogin.user.key).UpdateValue(json, true, FirebaseParam.Empty);
+        }
+    }
+
+    public void Lose()
+    {
+        print("Lose");
+        Main_Script._isEndGame = true;
+        Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
     }
 
     private bool checkTile(GameObject input, GameObject[] tiles)
@@ -297,7 +262,8 @@ public class heroScript : MonoBehaviour {
         if (other.gameObject.tag == "enemy" )
         {
             print("OUCH! you're lose");
-            this.gameObject.SetActive(false);
+            this.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("crash");
+            //this.gameObject.SetActive(false);
             Main_Script._isEndGame = true;
             Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);
             //Main_Script.restartGame.gameObject.SetActive(Main_Script._isEndGame);
@@ -308,13 +274,15 @@ public class heroScript : MonoBehaviour {
         {
             print("OUCH!");
             _countStar--;
-            other.gameObject.SetActive(false);
+            other.GetComponent<Animator>().Play("diamonAnim");
+           // other.gameObject.SetActive(false);
             Main_Script._textStar.text = "" + _countStar;
         }
         //Needle
         if(other.gameObject.tag == "Needle")
         {
             print("OUCH!");
+            this.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("crash");
             this.gameObject.SetActive(false);
             Main_Script._isEndGame = true;
             Main_Script.endGameImageLose.gameObject.SetActive(Main_Script._isEndGame);

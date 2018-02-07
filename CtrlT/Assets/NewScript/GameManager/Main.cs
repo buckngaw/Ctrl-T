@@ -331,8 +331,9 @@ public class Main : MonoBehaviour {
                 if (enemy_Script.isFall)
                 {
                     Vector3 temp = hero_Script.gameObject.transform.position;
-                    temp.y = -0.10f;
-                    hero_Script.gameObject.transform.position = temp;
+                    /*temp.y = -0.10f;
+                    hero_Script.gameObject.transform.position = temp;*/
+                    hero_Script.gameObject.transform.GetChild(4).GetComponent<Animator>().Play("fall");
                     print("Lose");
                     _isEndGame = true;
                     endGameImageLose.gameObject.SetActive(_isEndGame);
